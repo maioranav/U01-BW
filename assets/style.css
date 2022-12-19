@@ -1,5 +1,8 @@
+
 body {
   font-family: "Inter", sans-serif;
+  background-image: url(./imgs/bg.jpg);
+  background-size: cover;
 }
 h1,
 h2,
@@ -8,4 +11,9 @@ h4,
 h5,
 h6 {
   font-family: "Outfit", sans-serif;
+}
+
+header img {
+  height: 8vh;
+  padding: 50px;
 }
