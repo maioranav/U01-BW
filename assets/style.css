@@ -98,3 +98,21 @@ button {
   font-family: "Outfit", sans-serif;
   font-size: medium;
 }
+/*-------------------------------------------------------------*/
+#question {
+  width: 70vw;
+}
+#question img{
+  margin-left: -300px;
+}
+
+
+#text h1 {
+  font-weight: 400;
+  line-height: 1em;
+  
+  
+}
+#questions h1 span {
+  font-weight: 800;
+}
