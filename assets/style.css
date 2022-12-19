@@ -31,6 +31,9 @@ section {
   margin: auto;
   width: 50vw;
 }
+b {
+  font-weight: bold;
+}
 
 .hidden {
   display: none;
