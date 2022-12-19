@@ -98,3 +98,26 @@ button {
   font-family: "Outfit", sans-serif;
   font-size: medium;
 }
+#feedback {
+  text-align: center;
+}
+#comment {
+  display: block;
+  width: 90%;
+  margin: 3em auto;
+  padding: 1em;
+  background: rgba(40, 40, 40, 0);
+  color: white;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  border-bottom: 2px solid #d20094;
+  font-size: large;
+}
+#comment ::placeholder {
+  color: rgb(54, 54, 54);
+}
+.feedbackrating {
+  display: inline-block;
+}

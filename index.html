@@ -20,7 +20,7 @@
       <img src="./assets/imgs/epicode_logo.png" alt="logo" />
     </header>
 
-    <section id="welcome">
+    <section id="welcome" class="hidden">
       <!-- WELCOME PANEL -->
       <h1>
         Welcome to <br />
@@ -61,7 +61,7 @@
       <!-- FEEDBACK PANEL -->
     </section>
 
-    <section id="feedback" class="hidden">
+    <section id="feedback">
       <!-- FEEDBACK PANEL -->
       <h1>Tell us how it's going</h1>
       <h3>
@@ -69,8 +69,36 @@
         colleague?
       </h3>
       <h3>Leave us an open feedback about your experience so far</h3>
-      <input type="text" placeholder="Write vour comment here" />
-      <button>More info</button>
+      <form>
+        <fieldset>
+          <p class="feedbackrating">
+            <input id="feedback1" type="radio" value="1" name="feedback" />
+            <label for="feedback1">
+              <img src="./assets/imgs/star.svg" alt="1"
+            /></label>
+          </p>
+          <p class="feedbackrating">
+            <input id="feedback2" type="radio" value="2" name="feedback" />
+            <label for="feedback2">
+              <img src="./assets/imgs/star.svg" alt="2"
+            /></label>
+          </p>
+          <p class="feedbackrating">
+            <input id="feedback3" type="radio" value="3" name="feedback" />
+            <label for="feedback3">
+              <img src="./assets/imgs/star.svg" alt="3"
+            /></label>
+          </p>
+          <p class="feedbackrating">
+            <input id="feedback4" type="radio" value="4" />
+            <label for="feedback4">
+              <img src="./assets/imgs/star.svg" alt="4"
+            /></label>
+          </p>
+        </fieldset>
+      </form>
+      <input id="comment" type="text" placeholder="Write your comment here" />
+      <button>MORE INFO</button>
     </section>
 
     <script src="./assets/script/index.js"></script>
