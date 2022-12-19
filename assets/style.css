@@ -121,3 +121,32 @@ button {
 .feedbackrating {
   display: inline-block;
 }
+.feedbackrating img {
+  cursor: pointer;
+}
+.fieldesetFeedback {
+  border: none;
+}
+.feedbackrating img {
+  filter: none;
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  cursor: pointer;
+}
+.feedbackrating img:hover {
+  -webkit-filter: grayscale(0%);
+  -moz-filter: grayscale(0%);
+  -ms-filter: grayscale(0%);
+  -o-filter: grayscale(0%);
+}
+.stars_col {
+  -webkit-filter: grayscale(0%);
+  -moz-filter: grayscale(0%);
+  -ms-filter: grayscale(0%);
+  -o-filter: grayscale(0%);
+}
+.feedbackrating input[type="radio"] {
+  display: none;
+}
