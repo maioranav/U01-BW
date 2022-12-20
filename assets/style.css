@@ -215,7 +215,7 @@ h3 {
 .circle {
   fill: none;
   stroke-width: 4;
-  stroke-linecap: square;
+  /*  stroke-linecap: square; */
   animation: progress 1s ease-out forwards;
 }
 
