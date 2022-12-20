@@ -123,22 +123,23 @@ button {
   border-radius: 35px;
   box-shadow: -1px -1px 1px 1px rgba(255, 255, 255, 0.884);
   background-color: rgba(255, 251, 251, 0.103);
-  
+  margin: 15px auto;
 }
 
 .radio-container input[type="radio"] {
   display: none;
 }
 
+
 .radio-container input[type="radio"]:checked + label {
-  border: solid 2px green;
+  background-color:  #d20094
 }
 
 .radio-container {
-  word-break: break-all;
-  text-align: center;
-  margin-top: 25px;
-  
+display: flex;
+justify-content: space-evenly;
+flex-wrap: wrap;
+
 }
 
 /* FeedBackSection  */
