@@ -118,18 +118,16 @@ button {
   display: inline-block;
   width: 200px;
   padding: 10px;
-  border: solid 2px #ccc;
+  border: solid 0px #ccc;
   transition: all 0.3s;
+  border-radius: 35px;
+  box-shadow: -1px -1px 1px 1px rgba(255, 255, 255, 0.884);
+  background-color: rgba(255, 251, 251, 0.103);
+  
 }
 
 .radio-container input[type="radio"] {
   display: none;
-}
-
-.answer1,
-.answer2,
-.answer3,
-.answer4 {
 }
 
 .radio-container input[type="radio"]:checked + label {
@@ -140,6 +138,7 @@ button {
   word-break: break-all;
   text-align: center;
   margin-top: 25px;
+  
 }
 
 /* FeedBackSection  */
