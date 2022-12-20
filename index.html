@@ -1,69 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Outfit:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Outfit:wght@300;400;500;700&display=swap"
-    rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/style.css" />
+    <title>BenchMark Test</title>
+  </head>
 
-  <link rel="stylesheet" href="./assets/style.css" />
-  <title>BenchMark Test</title>
-</head>
+  <body>
+    <header>
+      <img src="./assets/imgs/epicode_logo.png" alt="logo" />
+    </header>
 
-<body>
-  <header>
-    <img src="./assets/imgs/epicode_logo.png" alt="logo" />
-  </header>
+    <section id="welcome" class="hidden">
+      <!-- WELCOME PANEL -->
+      <h1>
+        Welcome to <br />
+        <span>your exam</span>
+      </h1>
+      <h2 class="text-magenta">Instructions</h2>
+      <p>
+        We don't expect most engineers to know the answers to all of these
+        questions, so don't worry if you're unsure of a few of them.
+      </p>
+      <ul>
+        <li>
+          Each question is <b>timed</b> and can only be <b>answered once</b>.
+        </li>
+        <li>
+          Changin browser tab or opening other windows will
+          <b>invalidate the question</b>.
+        </li>
+        <li>This exam will take approx. <b>0-5 minutes</b>.</li>
+      </ul>
 
-  <section id="welcome" class="hidden">
-    <!-- WELCOME PANEL -->
-    <h1>
-      Welcome to <br />
-      <span>your exam</span>
-    </h1>
-    <h2 class="text-magenta">Instructions</h2>
-    <p>
-      We don't expect most engineers to know the answers to all of these
-      questions, so don't worry if you're unsure of a few of them.
-    </p>
-    <ul>
-      <li>
-        Each question is <b>timed</b> and can only be <b>answered once</b>.
-      </li>
-      <li>
-        Changin browser tab or opening other windows will
-        <b>invalidate the question</b>.
-      </li>
-      <li>This exam will take approx. <b>0-5 minutes</b>.</li>
-    </ul>
-
-    <div id="proceed">
-      <div>
-        <input type="checkbox" id="checkb" />
-        <label for="checkb">I promise to answer myself without help from anyone</label>
+      <div id="proceed">
+        <div>
+          <input type="checkbox" id="checkb" />
+          <label for="checkb"
+            >I promise to answer myself without help from anyone</label
+          >
+        </div>
+        <button>PROCEED</button>
       </div>
-      <button>PROCEED</button>
-    </div>
-  </section>
+    </section>
 
-  <!----------------- Questions ------------------>
+    <!----------------- Questions ------------------>
 
-  <section id="questions" class="hidden">
-    <!-- FEEDBACK PANEL -->
-    <h1 id="text">How can I create a <br /><span>checkbox in HTML?</span></h1>
-    <form action="">
-      <input type="button" value="risposta 1" />
-      <input type="button" value="risposta 2" />
-      <br />
-      <input type="button" value="risposta 3" />
-      <input type="button" value="risposta 4" />
-    </form>
-  </section>
+    <section id="questions">
+      <!-- FEEDBACK PANEL -->
+      <h1 id="domanda1">How can I create a checkbox in HTML</h1>
+      <form action="">
+      <div class="radio-container">
+        <input id="answer1" type="radio" name="options" value="answer1" />
+        <label for="answer1"></label>
+        <input id="answer2" type="radio" name="options" value="answer1" />
+        <label for="answer2"></label>
+        <input id="answer3" type="radio" name="options" value="answer1" />
+        <label for="answer3"></label>
+        <input id="answer4" type="radio" name="options" value="answer1" />
+        <label for="answer4"></label>
+      </div>
+     </form>
+    </section>
+
+    <!--------------------------------------------------------------------->
 
   <section id="results">
     <!-- FEEDBACK PANEL -->
@@ -120,7 +129,6 @@
     <button>MORE INFO</button>
   </section>
 
-  <script src="./assets/script/index.js"></script>
-</body>
-
+    <script src="./assets/script/index.js"></script>
+  </body>
 </html>
