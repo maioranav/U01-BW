@@ -1,169 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Outfit:wght@300;400;500;700&display=swap"
-      rel="stylesheet"
-    />
 
-    <link rel="stylesheet" href="./assets/style.css" />
-    <title>BenchMark Test</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Outfit:wght@300;400;500;700&display=swap"
+    rel="stylesheet" />
 
-  <body>
-    <header>
-      <img src="./assets/imgs/epicode_logo.png" alt="logo" />
-    </header>
+  <link rel="stylesheet" href="./assets/style.css" />
+  <title>BenchMark Test</title>
+</head>
 
-    <section id="welcome" class="hidden">
-      <!-- WELCOME PANEL -->
-      <h1>
-        Welcome to <br />
-        <span>your exam</span>
-      </h1>
-      <h2 class="text-magenta">Instructions</h2>
-      <p>
-        We don't expect most engineers to know the answers to all of these
-        questions, so don't worry if you're unsure of a few of them.
-      </p>
-      <ul>
-        <li>
-          Each question is <b>timed</b> and can only be <b>answered once</b>.
-        </li>
-        <li>
-          Changin browser tab or opening other windows will
-          <b>invalidate the question</b>.
-        </li>
-        <li>This exam will take approx. <b>0-5 minutes</b>.</li>
-      </ul>
+<body>
+  <header>
+    <img src="./assets/imgs/epicode_logo.png" alt="logo" />
+  </header>
 
-      <div id="proceed">
-        <div>
-          <input type="checkbox" id="checkb" />
-          <label for="checkb"
-            >I promise to answer myself without help from anyone</label
-          >
-        </div>
-        <button>PROCEED</button>
+  <section id="welcome">
+    <!-- WELCOME PANEL -->
+    <h1>
+      Welcome to <br />
+      <span>your exam</span>
+    </h1>
+    <h2 class="text-magenta">Instructions</h2>
+    <p>
+      We don't expect most engineers to know the answers to all of these
+      questions, so don't worry if you're unsure of a few of them.
+    </p>
+    <ul>
+      <li>
+        Each question is <b>timed</b> and can only be <b>answered once</b>.
+      </li>
+      <li>
+        Changin browser tab or opening other windows will
+        <b>invalidate the question</b>.
+      </li>
+      <li>This exam will take approx. <b>0-5 minutes</b>.</li>
+    </ul>
+
+    <div id="proceed">
+      <div>
+        <input type="checkbox" id="checkb" />
+        <label for="checkb">I promise to answer myself without help from anyone</label>
       </div>
-    </section>
+      <button onclick="startQuestions()">PROCEED</button>
+    </div>
+  </section>
 
-    <!----------------- Questions ------------------>
+  <!----------------- Questions ------------------>
 
-    <section id="questions">
-      <!-- FEEDBACK PANEL -->
-      <h1 id="domanda1">How can I create a checkbox in HTML</h1>
-      <form action="">
-        <div class="radio-container">
-          <input id="answer1" type="radio" name="options" value="answer1" />
-          <label for="answer1"></label>
-          <input id="answer2" type="radio" name="options" value="answer1" />
-          <label for="answer2"></label>
-          <input id="answer3" type="radio" name="options" value="answer1" />
-          <label for="answer3"></label>
-          <input id="answer4" type="radio" name="options" value="answer1" />
-          <label for="answer4"></label>
-        </div>
-        <div id="question-footer">
-          <h3>QUESTION 1 <span>/10</span></h3>
-          <a href="#"
-            ><ion-icon name="arrow-forward-outline" class="arrow"></ion-icon
-          ></a>
-        </div>
-      </form>
-    </section>
+  <section id="questions" class="hidden">
+    <!-- FEEDBACK PANEL -->
+    <h1 id="domanda1">How can I create a checkbox in HTML</h1>
+    <form action="">
+      <div class="radio-container">
+        <input id="answer1" type="radio" name="options" value="answer1" />
+        <label for="answer1"></label>
+        <input id="answer2" type="radio" name="options" value="answer1" />
+        <label for="answer2"></label>
+        <input id="answer3" type="radio" name="options" value="answer1" />
+        <label for="answer3"></label>
+        <input id="answer4" type="radio" name="options" value="answer1" />
+        <label for="answer4"></label>
+      </div>
+      <div id="question-footer">
+        <h3>QUESTION 1 <span>/10</span></h3>
+        <a href="#"><ion-icon name="arrow-forward-outline" class="arrow"></ion-icon></a>
+      </div>
+    </form>
+  </section>
 
-    <section id="results">
-      <!-- FEEDBACK PANEL -->
-      <h1>Results</h1>
-      <h3>The summary of your answers:</h3>
-      <div class="flexcontainer">
-        <div>
-          <h2>Correct</h2>
-          <h2>66.7%</h2>
-          <p>4/6 questions</p>
-        </div>
+  <section id="results" class="hidden">
+    <!-- FEEDBACK PANEL -->
+    <h1>Results</h1>
+    <h3>The summary of your answers:</h3>
+    <div class="flexcontainer">
+      <div>
+        <h2>Correct</h2>
+        <h2>66.7%</h2>
+        <p>4/6 questions</p>
+      </div>
 
-        <div class="single-chart">
-          <svg viewBox="0 0 36 36" class="circular-chart color">
-            <path
-              class="circle-bg"
-              d="M18 2.0845
+      <div class="single-chart">
+        <svg viewBox="0 0 36 36" class="circular-chart color">
+          <path class="circle-bg" d="M18 2.0845
               a 15.9155 15.9155 0 0 1 0 31.831
-              a 15.9155 15.9155 0 0 1 0 -31.831"
-            />
-            <path
-              class="circle"
-              stroke-dasharray="67, 100"
-              d="M18 2.0845
+              a 15.9155 15.9155 0 0 1 0 -31.831" />
+          <path class="circle" stroke-dasharray="67, 100" d="M18 2.0845
               a 15.9155 15.9155 0 0 1 0 31.831
-              a 15.9155 15.9155 0 0 1 0 -31.831"
-            />
-          </svg>
-          <div class="innergraphic">
-            Congratulations! <br />You passed the exam. <br />We'll send you the
-            certificate in few minutes. <br />
-            Check your email (including promotions / spam folder)
-          </div>
-        </div>
-
-        <div class="align-right">
-          <h2>Wrong</h2>
-          <h2>33.3%</h2>
-          <p>2/6 questions</p>
+              a 15.9155 15.9155 0 0 1 0 -31.831" />
+        </svg>
+        <div class="innergraphic">
+          Congratulations! <br />You passed the exam. <br />We'll send you the
+          certificate in few minutes. <br />
+          Check your email (including promotions / spam folder)
         </div>
       </div>
-      <div id="buttonresult">
-        <button>RATE US</button>
+
+      <div class="align-right">
+        <h2>Wrong</h2>
+        <h2>33.3%</h2>
+        <p>2/6 questions</p>
       </div>
-      <div class="answers">
-        <div id="answer1" class="answer">
-          <div>
-            <h6>domanda</h6>
-            <ul>
-              <li>Risposta 1</li>
-              <li>Risposta 2</li>
-              <li>Risposta 3</li>
-            </ul>
-          </div>
-          <div>
-            <h6>La tua risposta:</h6>
-            <p>risposta data</p>
-          </div>
+    </div>
+    <div id="buttonresult">
+      <button>RATE US</button>
+    </div>
+    <div class="answers">
+      <div id="answer1" class="answer">
+        <div>
+          <h6>domanda</h6>
+          <ul>
+            <li>Risposta 1</li>
+            <li>Risposta 2</li>
+            <li>Risposta 3</li>
+          </ul>
+        </div>
+        <div>
+          <h6>La tua risposta:</h6>
+          <p>risposta data</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="feedback" class="hidden">
-      <!-- FEEDBACK PANEL -->
-      <h1>Tell us how it's going</h1>
-      <h3>
-        From O to 10, how likely are you to recommend EPICODE to a friend or a
-        colleague?
-      </h3>
-      <form>
-        <fieldset id="fieldsetFeedback">
-          <!-- Inseriti da JS on load-->
-        </fieldset>
-      </form>
-      <h3>Leave us an open feedback about your experience so far</h3>
+  <section id="feedback" class="hidden">
+    <!-- FEEDBACK PANEL -->
+    <h1>Tell us how it's going</h1>
+    <h3>
+      From O to 10, how likely are you to recommend EPICODE to a friend or a
+      colleague?
+    </h3>
+    <form>
+      <fieldset id="fieldsetFeedback">
+        <!-- Inseriti da JS on load-->
+      </fieldset>
+    </form>
+    <h3>Leave us an open feedback about your experience so far</h3>
 
-      <input id="comment" type="text" placeholder="Write your comment here" />
-      <button>MORE INFO</button>
-    </section>
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-    ></script>
-    <script src="./assets/script/index.js"></script>
-  </body>
+    <input id="comment" type="text" placeholder="Write your comment here" />
+    <button>MORE INFO</button>
+  </section>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script src="./assets/script/index.js"></script>
+</body>
+
 </html>

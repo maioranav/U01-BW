@@ -94,6 +94,18 @@ const questions = [
   },
 ];
 
+const startQuestions = () => {
+  const verificaSpunta = document.querySelector("#checkb").checked;
+  if (verificaSpunta === true) {
+    document.querySelector("#welcome").classList.add("hidden");
+    loadQuestions(questions);
+  } else {
+    alert(
+      "You must confirm that you'll answer yourself without help from anyone."
+    );
+  }
+};
+
 const feedbackSection = document.querySelector("#fieldsetFeedback");
 const stelle = 10;
 for (let i = 0; i < stelle; i++) {
