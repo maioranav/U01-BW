@@ -1,58 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Outfit:wght@300;400;500;700&display=swap"
-      rel="stylesheet"
-    />
 
-    <link rel="stylesheet" href="./assets/style.css" />
-    <title>BenchMark Test</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Outfit:wght@300;400;500;700&display=swap"
+    rel="stylesheet" />
 
-  <body>
-    <header>
-      <img src="./assets/imgs/epicode_logo.png" alt="logo" />
-    </header>
+  <link rel="stylesheet" href="./assets/style.css" />
+  <title>BenchMark Test</title>
+</head>
 
-    <section id="welcome" class="hidden">
-      <!-- WELCOME PANEL -->
-      <h1>
-        Welcome to <br />
-        <span>your exam</span>
-      </h1>
-      <h2 class="text-magenta">Instructions</h2>
-      <p>
-        We don't expect most engineers to know the answers to all of these
-        questions, so don't worry if you're unsure of a few of them.
-      </p>
-      <ul>
-        <li>
-          Each question is <b>timed</b> and can only be <b>answered once</b>.
-        </li>
-        <li>
-          Changin browser tab or opening other windows will
-          <b>invalidate the question</b>.
-        </li>
-        <li>This exam will take approx. <b>0-5 minutes</b>.</li>
-      </ul>
+<body>
+  <header>
+    <img src="./assets/imgs/epicode_logo.png" alt="logo" />
+  </header>
 
-      <div id="proceed">
-        <div>
-          <input type="checkbox" id="checkb" />
-          <label for="checkb"
-            >I promise to answer myself without help from anyone</label
-          >
-        </div>
-        <button>PROCEED</button>
+  <section id="welcome" class="hidden">
+    <!-- WELCOME PANEL -->
+    <h1>
+      Welcome to <br />
+      <span>your exam</span>
+    </h1>
+    <h2 class="text-magenta">Instructions</h2>
+    <p>
+      We don't expect most engineers to know the answers to all of these
+      questions, so don't worry if you're unsure of a few of them.
+    </p>
+    <ul>
+      <li>
+        Each question is <b>timed</b> and can only be <b>answered once</b>.
+      </li>
+      <li>
+        Changin browser tab or opening other windows will
+        <b>invalidate the question</b>.
+      </li>
+      <li>This exam will take approx. <b>0-5 minutes</b>.</li>
+    </ul>
+
+    <div id="proceed">
+      <div>
+        <input type="checkbox" id="checkb" />
+        <label for="checkb">I promise to answer myself without help from anyone</label>
       </div>
-    </section>
-    <!--------------------------------------------------------------------->
+            <button>PROCEED</button>
+    </div>
+  </section>
+
+    <!----------------- Questions ------------------>
+    
     <section id="questions">
       <!-- FEEDBACK PANEL -->
       <h1 id="text">How can I create a <br /><span>checkbox in HTML?</span></h1>
@@ -64,24 +64,35 @@
         <input type="button" value="risposta 4" />
       </form>
     </section>
-    <!---------------------------------------------------------------------------->
-    <section id="results">
-      <!-- FEEDBACK PANEL -->
-    </section>
-    <!---------------------------------------------------------------------------->
-    <section id="feedback" class="hidden">
-      <!-- FEEDBACK PANEL -->
-      <h1>Tell us how it's going</h1>
-      <h3>
-        From O to 10, how likely are you to recommend EPICODE to a friend or a
-        colleague?
-      </h3>
-      <h3>Leave us an open feedback about your experience so far</h3>
-      <input type="text" placeholder="Write vour comment here" />
-      <button>More info</button>
-    </section>
 
-    <script src="./assets/script/index.js"></script>
-  </body>
+
+  <section id="questions">
+    <!-- FEEDBACK PANEL -->
+  </section>
+
+  <section id="results">
+    <!-- FEEDBACK PANEL -->
+  </section>
+
+  <section id="feedback">
+    <!-- FEEDBACK PANEL -->
+    <h1>Tell us how it's going</h1>
+    <h3>
+      From O to 10, how likely are you to recommend EPICODE to a friend or a
+      colleague?
+    </h3>
+    <form>
+      <fieldset id="fieldsetFeedback">
+        <!-- Inseriti da JS on load-->
+      </fieldset>
+    </form>
+    <h3>Leave us an open feedback about your experience so far</h3>
+
+    <input id="comment" type="text" placeholder="Write your comment here" />
+    <button>MORE INFO</button>
+  </section>
+
+  <script src="./assets/script/index.js"></script>
+</body>
+
 </html>
-<!---------------------------------------------------------------------------->
