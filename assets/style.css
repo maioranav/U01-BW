@@ -114,9 +114,16 @@ button {
 }
 
 #questions input {
-  padding: 25px 80px;
+  padding: 20px 50px;
   border-radius: 35px;
-  box-shadow: -1px -3px 2px 3px rgba(255, 255, 255, 0.7);
+  box-shadow: -1px -2px 3px 1.7px #ffffff;
+
+  /*non capisco se c'è box-shadow o border*/
+  /*   border-top: 3px solid #ffffff;
+  border-right: 3px solid #ffffffd7;
+  border-left: 3px solid #ffffffcc;
+  border-bottom: 2px solid #ffffffa6;
+ */
   background: rgba(40, 40, 40, 0.2);
   color: white;
   margin: 15px 25px;
