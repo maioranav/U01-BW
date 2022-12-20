@@ -99,6 +99,37 @@ button {
   font-size: medium;
 }
 
+/*------------ Question Divs ----------------*/
+#questions h1 {
+  margin-top: 2em;
+  font-weight: 400;
+  line-height: 1em;
+  text-align: center;
+}
+#questions h1 span {
+  font-weight: 800;
+}
+
+#questions form {
+  text-align: center;
+}
+
+#questions input {
+  padding: 20px 50px;
+  border-radius: 35px;
+  box-shadow: -1px -2px 3px 1.7px #ffffff;
+
+  /*non capisco se c'è box-shadow o border*/
+  /*   border-top: 3px solid #ffffff;
+  border-right: 3px solid #ffffffd7;
+  border-left: 3px solid #ffffffcc;
+  border-bottom: 2px solid #ffffffa6;
+ */
+  background: rgba(40, 40, 40, 0.2);
+  color: white;
+  margin: 15px 25px;
+
+
 /* FeedBackSection  */
 
 #feedback {
