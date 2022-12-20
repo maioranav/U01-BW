@@ -121,11 +121,12 @@ button {
 .feedbackrating {
   display: inline-block;
 }
+#fieldsetFeedback {
+  border: none;
+  word-spacing: 5px;
+}
 .feedbackrating img {
   cursor: pointer;
-}
-.fieldesetFeedback {
-  border: none;
 }
 .feedbackrating img {
   filter: none;
@@ -142,10 +143,10 @@ button {
   -o-filter: grayscale(0%);
 }
 .stars_col {
-  -webkit-filter: grayscale(0%);
-  -moz-filter: grayscale(0%);
-  -ms-filter: grayscale(0%);
-  -o-filter: grayscale(0%);
+  -webkit-filter: grayscale(0%) !important;
+  -moz-filter: grayscale(0%) !important;
+  -ms-filter: grayscale(0%) !important;
+  -o-filter: grayscale(0%) !important;
 }
 .feedbackrating input[type="radio"] {
   display: none;
