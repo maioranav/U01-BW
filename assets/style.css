@@ -245,3 +245,21 @@ h3 {
   justify-content: space-between;
   margin: 4em auto;
 }
+.answer {
+  background-color: #ffffff9b;
+  border: 2px solid #d20094;
+  display: flex;
+  justify-content: space-between;
+  color: black;
+  margin: 2em auto;
+  padding: 20px;
+}
+.answer h6 {
+  color: #d20094;
+}
+.answer div:not(:first-of-type) {
+  width: 40%;
+}
+.answer ul {
+  list-style-type: none;
+}
