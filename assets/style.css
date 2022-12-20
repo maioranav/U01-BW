@@ -98,10 +98,10 @@ button {
   font-family: "Outfit", sans-serif;
   font-size: medium;
 }
-
-/*------------ Question Divs ----------------*/
+/*-------------------------------------------------------------*/
 #questions h1 {
   margin-top: 2em;
+  margin-bottom: 100px;
   font-weight: 400;
   line-height: 1em;
   text-align: center;
@@ -114,20 +114,45 @@ button {
   text-align: center;
 }
 
-#questions input {
-  padding: 20px 50px;
+.radio-container label {
+  display: inline-block;
+  width: 200px;
+  padding: 10px;
+  border: solid 0px #ccc;
+  transition: all 0.3s;
   border-radius: 35px;
-  box-shadow: -1px -2px 3px 1.7px #ffffff;
+  box-shadow: -1px -1px 1px 1px rgba(255, 255, 255, 0.884);
+  background-color: rgba(255, 251, 251, 0.103);
+  margin: 15px auto;
+}
 
-  /*non capisco se c'è box-shadow o border*/
-  /*   border-top: 3px solid #ffffff;
-  border-right: 3px solid #ffffffd7;
-  border-left: 3px solid #ffffffcc;
-  border-bottom: 2px solid #ffffffa6;
- */
-  background: rgba(40, 40, 40, 0.2);
+.radio-container input[type="radio"] {
+  display: none;
+}
+
+.radio-container input[type="radio"]:checked + label {
+  background-color:  #d20094
+}
+
+.radio-container {
+display: flex;
+justify-content: space-evenly;
+flex-wrap: wrap;
+}
+
+#question-footer{
+  display: flex;
+  justify-content: space-between;
+}
+
+#question-footer span {
+  color: #d20094;
+}
+
+.arrow {
   color: white;
-  margin: 15px 25px;
+  font-size:x-large;
+  margin-top: 0.6em;
 }
 
 /* FeedBackSection  */
@@ -170,18 +195,21 @@ button {
   -o-filter: grayscale(100%);
   cursor: pointer;
 }
+
 .feedbackrating img:hover {
   -webkit-filter: grayscale(0%);
   -moz-filter: grayscale(0%);
   -ms-filter: grayscale(0%);
   -o-filter: grayscale(0%);
 }
+
 .stars_col {
   -webkit-filter: grayscale(0%) !important;
   -moz-filter: grayscale(0%) !important;
   -ms-filter: grayscale(0%) !important;
   -o-filter: grayscale(0%) !important;
 }
+
 .feedbackrating input[type="radio"] {
   display: none;
 }

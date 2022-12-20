@@ -55,15 +55,26 @@
 
     <!----------------- Questions ------------------>
 
-    <section id="questions" class="hidden">
+    <section id="questions">
       <!-- FEEDBACK PANEL -->
-      <h1 id="text">How can I create a <br /><span>checkbox in HTML?</span></h1>
+      <h1 id="domanda1">How can I create a checkbox in HTML</h1>
       <form action="">
-        <input type="button" value="risposta 1" />
-        <input type="button" value="risposta 2" />
-        <br />
-        <input type="button" value="risposta 3" />
-        <input type="button" value="risposta 4" />
+        <div class="radio-container">
+          <input id="answer1" type="radio" name="options" value="answer1" />
+          <label for="answer1"></label>
+          <input id="answer2" type="radio" name="options" value="answer1" />
+          <label for="answer2"></label>
+          <input id="answer3" type="radio" name="options" value="answer1" />
+          <label for="answer3"></label>
+          <input id="answer4" type="radio" name="options" value="answer1" />
+          <label for="answer4"></label>
+        </div>
+        <div id="question-footer">
+          <h3>QUESTION 1 <span>/10</span></h3>
+          <a href="#"
+            ><ion-icon name="arrow-forward-outline" class="arrow"></ion-icon
+          ></a>
+        </div>
       </form>
     </section>
 
@@ -145,7 +156,14 @@
       <input id="comment" type="text" placeholder="Write your comment here" />
       <button>MORE INFO</button>
     </section>
-
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
     <script src="./assets/script/index.js"></script>
   </body>
 </html>
