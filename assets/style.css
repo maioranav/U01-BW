@@ -114,21 +114,42 @@ button {
   text-align: center;
 }
 
-#questions input {
-  padding: 20px 50px;
-  border-radius: 35px;
-  box-shadow: -1px -2px 3px 1.7px #ffffff;
+input[type="radio"] {
+  width: 300px;
+  height: 100px;
+  border-radius: 15px;
+  border: 2px solid #1fbed6;
+  background-color: white;
+  -webkit-appearance: none; /*to disable the default appearance of radio button*/
+  -moz-appearance: none;
+}
 
-  /*non capisco se c'è box-shadow o border*/
-  /*   border-top: 3px solid #ffffff;
-  border-right: 3px solid #ffffffd7;
-  border-left: 3px solid #ffffffcc;
-  border-bottom: 2px solid #ffffffa6;
- */
-  background: rgba(40, 40, 40, 0.2);
+input[type="radio"]:focus {
+  /*no need, if you don't disable default appearance*/
+  outline: none; /*to remove the square border on focus*/
+}
+
+input[type="radio"]:checked {
+  /*no need, if you don't disable default appearance*/
+  background-color: #1fbed6;
+}
+
+input[type="radio"]:checked {
   color: white;
-  margin: 15px 25px;
+}
 
+/* label span:first-of-type {
+  position: relative;
+  left: -27px;
+  font-size: 15px;
+  color: #1fbed6;
+} */
+
+label span {
+  position: relative;
+  top: -50px;
+  right: 150px;
+}
 
 /* FeedBackSection  */
 
@@ -170,18 +191,21 @@ button {
   -o-filter: grayscale(100%);
   cursor: pointer;
 }
+
 .feedbackrating img:hover {
   -webkit-filter: grayscale(0%);
   -moz-filter: grayscale(0%);
   -ms-filter: grayscale(0%);
   -o-filter: grayscale(0%);
 }
+
 .stars_col {
   -webkit-filter: grayscale(0%) !important;
   -moz-filter: grayscale(0%) !important;
   -ms-filter: grayscale(0%) !important;
   -o-filter: grayscale(0%) !important;
 }
+
 .feedbackrating input[type="radio"] {
   display: none;
 }
