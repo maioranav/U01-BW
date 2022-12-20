@@ -194,7 +194,7 @@ h3 {
 }
 
 .single-chart {
-  width: 33%;
+  width: 50%;
   justify-content: space-around;
 }
 
@@ -202,19 +202,19 @@ h3 {
   display: block;
   margin: 10px auto;
   max-width: 80%;
-  max-height: 250px;
+  max-height: 1250px;
 }
 
 .circle-bg {
   fill: none;
-  stroke: #eee;
-  stroke-width: 3.8;
+  stroke: #d20094;
+  stroke-width: 4;
 }
 
 .circle {
   fill: none;
-  stroke-width: 2.8;
-  stroke-linecap: round;
+  stroke-width: 4;
+  stroke-linecap: square;
   animation: progress 1s ease-out forwards;
 }
 
@@ -224,25 +224,24 @@ h3 {
   }
 }
 
-.circular-chart.orange .circle {
-  stroke: #ff9f00;
+.circular-chart.color .circle {
+  stroke: #0ff;
 }
 
-.circular-chart.green .circle {
-  stroke: #4cc790;
-}
-
-.circular-chart.blue .circle {
-  stroke: #3c9ee5;
-}
-
-.percentage {
+.innergraphic {
   fill: #666;
+  width: 50%;
   font-family: sans-serif;
-  font-size: 0.5em;
-  text-anchor: middle;
+  font-size: 14px;
+  word-wrap: normal;
+  text-align: center;
+  position: relative;
+  left: 25%;
+  top: 50%;
 }
 .flexcontainer {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  margin: 4em auto;
 }
