@@ -93,6 +93,7 @@ const questions = [
     incorrect_answers: ["Python", "C", "Jakarta"],
   },
 ];
+const arrayRisposte = [];
 
 const shuffle = (array) => {
   let currentIndex = array.length,
@@ -173,6 +174,7 @@ const nextQuestion = () => {
       document
         .querySelector(`#domanda${activeQuestion}`)
         .classList.add("hidden");
+      addResponseToArray(activeQuestion);
       activeQuestion++;
       document
         .querySelector(`#domanda${activeQuestion}`)
@@ -182,6 +184,7 @@ const nextQuestion = () => {
       document
         .querySelector(`#domanda${activeQuestion}`)
         .classList.add("hidden");
+      addResponseToArray(activeQuestion);
       showResults();
       break;
   }
@@ -190,8 +193,14 @@ const nextQuestion = () => {
 };
 
 const showResults = () => {
-  console.log("Siamo gia arrivati ai risultati");
+  console.log(arrayRisposte);
   document.getElementById("results").classList.remove("hidden");
+};
+
+const addResponseToArray = (indice) => {
+  arrayRisposte[indice] = document.querySelector(
+    `#question${indice} input[type="radio"]:checked + label `
+  ).innerHTML;
 };
 
 const feedbackSection = document.querySelector("#fieldsetFeedback");
