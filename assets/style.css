@@ -116,14 +116,14 @@ button {
 
 .radio-container label {
   display: inline-block;
-  width: 200px;
-  padding: 10px;
+  min-width: 350px;
+  padding: 20px;
   border: solid 0px #ccc;
   transition: all 0.3s;
   border-radius: 35px;
   box-shadow: -1px -1px 1px 1px rgba(255, 255, 255, 0.884);
   background-color: rgba(255, 251, 251, 0.103);
-  margin: 15px auto;
+  margin: 15px 20px;
 }
 
 .radio-container input[type="radio"] {
@@ -131,16 +131,17 @@ button {
 }
 
 .radio-container input[type="radio"]:checked + label {
-  background-color:  #d20094
+  background-color: #d20094;
 }
 
 .radio-container {
-display: flex;
-justify-content: space-evenly;
-flex-wrap: wrap;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-bottom: 75px;
 }
 
-#question-footer{
+#question-footer {
   display: flex;
   justify-content: space-between;
 }
@@ -151,7 +152,7 @@ flex-wrap: wrap;
 
 .arrow {
   color: white;
-  font-size:x-large;
+  font-size: x-large;
   margin-top: 0.6em;
 }
 
