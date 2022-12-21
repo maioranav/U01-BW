@@ -94,6 +94,84 @@ const questions = [
   },
 ];
 
+const startQuestions = () => {
+  const verificaSpunta = document.querySelector("#checkb").checked;
+  if (verificaSpunta === true) {
+    document.querySelector("#welcome").classList.add("hidden");
+    loadQuestions(questions);
+  } else {
+    alert(
+      "You must confirm that you'll answer yourself without help from anyone."
+    );
+  }
+};
+
+let activeQuestion = -1;
+
+const loadQuestions = (questionsArray) => {
+  const questionsSection = document.querySelector("#questions");
+  for (let i = 0; i < questionsArray.length; i++) {
+    let domande = `<div id="domanda${i}" class="hidden">
+      <h1>${questionsArray[i].question}</h1>
+      <form id="question${i}">
+        <div class="radio-container">`;
+
+    let answers = questionsArray[i].incorrect_answers;
+
+    for (let q = 0; q < answers.length; q++) {
+      domande += `<input id="answer${q}" type="radio" name="options" value="answer${q}" />
+          <label for="answer${q}">${answers[q]}</label>`;
+    }
+
+    domande += `</div>
+        <div id="question-footer">
+          <h3>QUESTION ${i + 1} <span>/${questionsArray.length}</span></h3>
+          <a onclick="nextQuestion()"><ion-icon name="arrow-forward-outline" class="arrow"></ion-icon></a>
+        </div>
+      </form>
+    </div>`;
+
+    questionsSection.innerHTML += domande;
+    document.querySelector("#questions").classList.remove("hidden");
+  }
+  nextQuestion();
+};
+
+const nextQuestion = () => {
+  switch (true) {
+    case activeQuestion < 0:
+      activeQuestion += 1;
+      console.log(activeQuestion);
+      document
+        .querySelector(`#domanda${activeQuestion}`)
+        .classList.remove("hidden");
+      console.log(activeQuestion);
+      break;
+    case activeQuestion >= 0 && activeQuestion < questions.length - 1:
+      document
+        .querySelector(`#domanda${activeQuestion}`)
+        .classList.add("hidden");
+      activeQuestion++;
+      document
+        .querySelector(`#domanda${activeQuestion}`)
+        .classList.remove("hidden");
+      break;
+    default:
+      document
+        .querySelector(`#domanda${activeQuestion}`)
+        .classList.add("hidden");
+      showResults();
+      break;
+  }
+
+  //AZZERARE IL TIMER E MOSTRARE LA NUOVA DOMANDA
+};
+
+const showResults = () => {
+  console.log("Siamo gia arrivati ai risultati");
+  document.getElementById("results").classList.remove("hidden");
+};
+
 const feedbackSection = document.querySelector("#fieldsetFeedback");
 const stelle = 10;
 for (let i = 0; i < stelle; i++) {
