@@ -93,6 +93,7 @@ const questions = [
     incorrect_answers: ["Python", "C", "Jakarta"],
   },
 ];
+const arrayRisposte = [];
 
 const shuffle = (array) => {
   let currentIndex = array.length,
@@ -141,8 +142,8 @@ const loadQuestions = (questionsArray) => {
     let answers = questionsArray[i].answers;
 
     for (let q = 0; q < answers.length; q++) {
-      domande += `<input id="answer${q}" type="radio" name="options" value="answer${q}" />
-          <label for="answer${q}">${answers[q]}</label>`;
+      domande += `<input id="answer${i}_${q}" type="radio" name="options" value="answer${q}" />
+          <label for="answer${i}_${q}">${answers[q]}</label>`;
     }
 
     domande += `</div>
@@ -173,6 +174,7 @@ const nextQuestion = () => {
       document
         .querySelector(`#domanda${activeQuestion}`)
         .classList.add("hidden");
+      addResponseToArray(activeQuestion);
       activeQuestion++;
       document
         .querySelector(`#domanda${activeQuestion}`)
@@ -182,6 +184,7 @@ const nextQuestion = () => {
       document
         .querySelector(`#domanda${activeQuestion}`)
         .classList.add("hidden");
+      addResponseToArray(activeQuestion);
       showResults();
       break;
   }
@@ -190,8 +193,95 @@ const nextQuestion = () => {
 };
 
 const showResults = () => {
-  console.log("Siamo gia arrivati ai risultati");
+  punteggio();
+  drawChart();
   document.getElementById("results").classList.remove("hidden");
+};
+
+const addResponseToArray = (indice) => {
+  let risposta = document.querySelector(
+    `#question${indice} input[type="radio"]:checked + label `
+  );
+  if (risposta !== null) {
+    arrayRisposte[indice] = risposta.innerHTML;
+  } else {
+    arrayRisposte[indice] = "N/A";
+  }
+};
+
+const punteggio = () => {
+  const domandeTotali = questions.length;
+  let risposteCorrette = 0;
+  let risposteErrate = 0;
+  for (let index = 0; index < questions.length; index++) {
+    if (questions[index].correct_answer === arrayRisposte[index]) {
+      risposteCorrette += 1;
+    } else {
+      risposteErrate += 1;
+    }
+  }
+  const percentualeCorrette = (risposteCorrette * 100) / domandeTotali;
+  const percentualeErrate = 100 - percentualeCorrette;
+  return {
+    domandeTotali,
+    risposteCorrette,
+    risposteErrate,
+    percentualeCorrette,
+    percentualeErrate,
+  };
+};
+
+const drawChart = () => {
+  const risultati = punteggio();
+  if (risultati.percentualeCorrette >= 60) {
+    innergraphic = `Congratulations! <br />You passed the exam. <br />We'll send you the
+            certificate in few minutes. <br />
+            Check your email (including promotions / spam folder)`;
+  } else {
+    innergraphic = `Too bad, <br />you didn't pass the exam. <br />Contact your teaching assistant!<br />
+          `;
+  }
+  console.log(innergraphic);
+  const disegnaRisultati = `<div>
+          <h2>Correct</h2>
+          <h2>${risultati.percentualeCorrette}%</h2>
+          <p>${risultati.risposteCorrette}/${
+    risultati.domandeTotali
+  } questions</p>
+        </div>
+
+        <div class="single-chart">
+          <svg viewBox="0 0 36 36" class="circular-chart color">
+            <path
+              class="circle-bg"
+              d="M18 2.0845
+              a 15.9155 15.9155 0 0 1 0 31.831
+              a 15.9155 15.9155 0 0 1 0 -31.831"
+            />
+            <path
+              class="circle"
+              stroke-dasharray="${Math.floor(
+                risultati.percentualeCorrette
+              )}, 100"
+              d="M18 2.0845
+              a 15.9155 15.9155 0 0 1 0 31.831
+              a 15.9155 15.9155 0 0 1 0 -31.831"
+            />
+          </svg>
+          <div class="innergraphic">
+            ${innergraphic}
+          </div>
+        </div>
+
+        <div class="align-right">
+          <h2>Wrong</h2>
+          <h2>${risultati.percentualeErrate}%</h2>
+          <p>${risultati.risposteErrate}/${
+    risultati.domandeTotali
+  } questions</p>
+        </div>`;
+  const chartSection = document.querySelector("#chart-section");
+  chartSection.innerHTML = disegnaRisultati;
 };
 
 const feedbackSection = document.querySelector("#fieldsetFeedback");
