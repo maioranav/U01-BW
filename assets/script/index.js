@@ -142,8 +142,8 @@ const loadQuestions = (questionsArray) => {
     let answers = questionsArray[i].answers;
 
     for (let q = 0; q < answers.length; q++) {
-      domande += `<input id="answer${q}" type="radio" name="options" value="answer${q}" />
-          <label for="answer${q}">${answers[q]}</label>`;
+      domande += `<input id="answer${i}_${q}" type="radio" name="options" value="answer${q}" />
+          <label for="answer${i}_${q}">${answers[q]}</label>`;
     }
 
     domande += `</div>
@@ -198,9 +198,15 @@ const showResults = () => {
 };
 
 const addResponseToArray = (indice) => {
-  arrayRisposte[indice] = document.querySelector(
+  let risposta = document.querySelector(
     `#question${indice} input[type="radio"]:checked + label `
   ).innerHTML;
+  if (risposta !== null) {
+    arrayRisposte[indice] = risposta;
+  } else {
+    arrayRisposte[indice] = "N/A";
+  }
+  console.log(arrayRisposte[indice]);
 };
 
 const feedbackSection = document.querySelector("#fieldsetFeedback");
