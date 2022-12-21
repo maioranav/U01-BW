@@ -193,7 +193,6 @@ const nextQuestion = () => {
 };
 
 const showResults = () => {
-  console.log(arrayRisposte);
   document.getElementById("results").classList.remove("hidden");
 };
 
@@ -206,7 +205,28 @@ const addResponseToArray = (indice) => {
   } else {
     arrayRisposte[indice] = "N/A";
   }
-  console.log(arrayRisposte[indice]);
+};
+
+const punteggio = () => {
+  const domandeTotali = questions.length;
+  let risposteCorrette = 0;
+  let risposteErrate = 0;
+  for (let index = 0; index < questions.length; index++) {
+    if (questions[index].correct_answer === arrayRisposte[index]) {
+      risposteCorrette += 1;
+    } else {
+      risposteErrate += 1;
+    }
+  }
+  const percentualeCorrette = (risposteCorrette * 100) / domandeTotali;
+  const percentualeErrate = 100 - percentualeCorrette;
+  return {
+    domandeTotali,
+    risposteCorrette,
+    risposteErrate,
+    percentualeCorrette,
+    percentualeErrate,
+  };
 };
 
 const feedbackSection = document.querySelector("#fieldsetFeedback");
