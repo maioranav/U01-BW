@@ -200,9 +200,9 @@ const showResults = () => {
 const addResponseToArray = (indice) => {
   let risposta = document.querySelector(
     `#question${indice} input[type="radio"]:checked + label `
-  ).innerHTML;
+  );
   if (risposta !== null) {
-    arrayRisposte[indice] = risposta;
+    arrayRisposte[indice] = risposta.innerHTML;
   } else {
     arrayRisposte[indice] = "N/A";
   }
