@@ -193,6 +193,8 @@ const nextQuestion = () => {
 };
 
 const showResults = () => {
+  punteggio();
+  drawChart();
   document.getElementById("results").classList.remove("hidden");
 };
 
@@ -227,6 +229,59 @@ const punteggio = () => {
     percentualeCorrette,
     percentualeErrate,
   };
+};
+
+const drawChart = () => {
+  const risultati = punteggio();
+  if (risultati.percentualeCorrette >= 60) {
+    innergraphic = `Congratulations! <br />You passed the exam. <br />We'll send you the
+            certificate in few minutes. <br />
+            Check your email (including promotions / spam folder)`;
+  } else {
+    innergraphic = `Too bad, <br />you didn't pass the exam. <br />Contact your teaching assistant!<br />
+          `;
+  }
+  console.log(innergraphic);
+  const disegnaRisultati = `<div>
+          <h2>Correct</h2>
+          <h2>${risultati.percentualeCorrette}%</h2>
+          <p>${risultati.risposteCorrette}/${
+    risultati.domandeTotali
+  } questions</p>
+        </div>
+
+        <div class="single-chart">
+          <svg viewBox="0 0 36 36" class="circular-chart color">
+            <path
+              class="circle-bg"
+              d="M18 2.0845
+              a 15.9155 15.9155 0 0 1 0 31.831
+              a 15.9155 15.9155 0 0 1 0 -31.831"
+            />
+            <path
+              class="circle"
+              stroke-dasharray="${Math.floor(
+                risultati.percentualeCorrette
+              )}, 100"
+              d="M18 2.0845
+              a 15.9155 15.9155 0 0 1 0 31.831
+              a 15.9155 15.9155 0 0 1 0 -31.831"
+            />
+          </svg>
+          <div class="innergraphic">
+            ${innergraphic}
+          </div>
+        </div>
+
+        <div class="align-right">
+          <h2>Wrong</h2>
+          <h2>${risultati.percentualeErrate}%</h2>
+          <p>${risultati.risposteErrate}/${
+    risultati.domandeTotali
+  } questions</p>
+        </div>`;
+  const chartSection = document.querySelector("#chart-section");
+  chartSection.innerHTML = disegnaRisultati;
 };
 
 const feedbackSection = document.querySelector("#fieldsetFeedback");
