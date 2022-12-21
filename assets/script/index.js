@@ -292,9 +292,9 @@ const listAnswers = () => {
             <div>
               <h6>${questions[q].question}</h6>
               <ul>
-                <li>${questions[q].correct_answer}</li>`;
+                <li><ion-icon name="checkmark-outline" style= "color: green;"></ion-icon>${questions[q].correct_answer}</li>`;
     for (let ia = 0; ia < questions[q].incorrect_answers.length; ia++) {
-      schedaRisposte += `<li>${questions[q].incorrect_answers[ia]}</li>`;
+      schedaRisposte += `<li><ion-icon name="close-outline" style= "color: red;"></ion-icon>${questions[q].incorrect_answers[ia]}</li>`;
     }
     schedaRisposte += `
               </ul>
