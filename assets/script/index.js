@@ -289,11 +289,11 @@ const listAnswers = () => {
   let schedaRisposte = "";
   for (let q = 0; q < questions.length; q++) {
     if (arrayRisposte[q] === questions[q].correct_answer) {
-      rispostadata = `<ion-icon name="close-outline" style="color: green;"></ion-icon>${arrayRisposte[q]}`
+      rispostadata = `<ion-icon name="close-outline" style="color: green;"></ion-icon>${arrayRisposte[q]}`;
     } else if (arrayRisposte[q] === "N/A") {
-      rispostadata = `<ion-icon name="close-outline" style= "color: red;"></ion-icon>${arrayRisposte[q]}`
+      rispostadata = `<ion-icon name="close-outline" style= "color: red;"></ion-icon>${arrayRisposte[q]}`;
     } else {
-      rispostadata = `<ion-icon name="close-outline" style= "color: red;"></ion-icon>${arrayRisposte[q]}`
+      rispostadata = `<ion-icon name="close-outline" style= "color: red;"></ion-icon>${arrayRisposte[q]}`;
     }
     schedaRisposte += `<div id="answer${q}" class="answer">
             <div>
@@ -314,6 +314,11 @@ const listAnswers = () => {
   }
   const sezioneRisposte = document.querySelector(".answers");
   sezioneRisposte.innerHTML = schedaRisposte;
+};
+
+const rateUs = () => {
+  document.querySelector("#results").classList.add("hidden");
+  document.querySelector("#feedback").classList.remove("hidden");
 };
 
 const feedbackSection = document.querySelector("#fieldsetFeedback");
