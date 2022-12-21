@@ -93,12 +93,28 @@ const questions = [
     incorrect_answers: ["Python", "C", "Jakarta"],
   },
 ];
+
+const shuffle = (array) => {
+  let currentIndex = array.length,
+    randomIndex;
+
+  while (currentIndex != 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
+  }
+  return array;
+};
+
 for (let i = 0; i < questions.length; i++) {
-   questions[i].answers = [ ... questions[i].incorrect_answers];
-   questions[i].answers.push(questions[i].correct_answer);
-  
+  questions[i].answers = [...questions[i].incorrect_answers];
+  questions[i].answers.push(questions[i].correct_answer);
+  shuffle(questions[i].answers);
 }
-console.log(questions)
+console.log(questions);
 
 const startQuestions = () => {
   const verificaSpunta = document.querySelector("#checkb").checked;
