@@ -138,7 +138,7 @@ const loadQuestions = (questionsArray) => {
       <form id="question${i}">
         <div class="radio-container">`;
 
-    let answers = questionsArray[i].incorrect_answers;
+    let answers = questionsArray[i].answers;
 
     for (let q = 0; q < answers.length; q++) {
       domande += `<input id="answer${q}" type="radio" name="options" value="answer${q}" />
