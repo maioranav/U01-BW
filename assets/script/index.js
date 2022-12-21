@@ -125,7 +125,7 @@ const loadQuestions = (questionsArray) => {
 
     domande += `</div>
         <div id="question-footer">
-          <h3>QUESTION ${i} <span>/${questionsArray.length}</span></h3>
+          <h3>QUESTION ${i + 1} <span>/${questionsArray.length}</span></h3>
           <a onclick="nextQuestion()"><ion-icon name="arrow-forward-outline" class="arrow"></ion-icon></a>
         </div>
       </form>
@@ -133,32 +133,43 @@ const loadQuestions = (questionsArray) => {
 
     questionsSection.innerHTML += domande;
     document.querySelector("#questions").classList.remove("hidden");
-    nextQuestion();
   }
+  nextQuestion();
 };
 
 const nextQuestion = () => {
-  if (activeQuestion < 0) {
-    activeQuestion += 1;
-    console.log(activeQuestion);
-    document
-      .querySelector(`#domanda${activeQuestion}`)
-      .classList.remove("hidden");
-  } else if (activeQuestion < questions.length && activeQuestion >= 0) {
-    document.querySelector(`#domanda${activeQuestion}`).classList.add("hidden");
-    activeQuestion++;
-    document
-      .querySelector(`#domanda${activeQuestion}`)
-      .classList.remove("hidden");
-  } else {
-    document.querySelector(`#domanda${activeQuestion}`).classList.add("hidden");
-    showResults();
+  switch (true) {
+    case activeQuestion < 0:
+      activeQuestion += 1;
+      console.log(activeQuestion);
+      document
+        .querySelector(`#domanda${activeQuestion}`)
+        .classList.remove("hidden");
+      console.log(activeQuestion);
+      break;
+    case activeQuestion >= 0 && activeQuestion < questions.length - 1:
+      document
+        .querySelector(`#domanda${activeQuestion}`)
+        .classList.add("hidden");
+      activeQuestion++;
+      document
+        .querySelector(`#domanda${activeQuestion}`)
+        .classList.remove("hidden");
+      break;
+    default:
+      document
+        .querySelector(`#domanda${activeQuestion}`)
+        .classList.add("hidden");
+      showResults();
+      break;
   }
+
   //AZZERARE IL TIMER E MOSTRARE LA NUOVA DOMANDA
 };
 
 const showResults = () => {
   console.log("Siamo gia arrivati ai risultati");
+  document.getElementById("results").classList.remove("hidden");
 };
 
 const feedbackSection = document.querySelector("#fieldsetFeedback");
