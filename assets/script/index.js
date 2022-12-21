@@ -93,6 +93,228 @@ const questions = [
     incorrect_answers: ["Python", "C", "Jakarta"],
   },
 ];
+const arrayRisposte = [];
+
+const shuffle = (array) => {
+  let currentIndex = array.length,
+    randomIndex;
+
+  while (currentIndex != 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
+  }
+  return array;
+};
+
+for (let i = 0; i < questions.length; i++) {
+  questions[i].answers = [...questions[i].incorrect_answers];
+  questions[i].answers.push(questions[i].correct_answer);
+  shuffle(questions[i].answers);
+}
+console.log(questions);
+
+const startQuestions = () => {
+  const verificaSpunta = document.querySelector("#checkb").checked;
+  if (verificaSpunta === true) {
+    document.querySelector("#welcome").classList.add("hidden");
+    loadQuestions(questions);
+  } else {
+    alert(
+      "You must confirm that you'll answer yourself without help from anyone."
+    );
+  }
+};
+
+let activeQuestion = -1;
+
+const loadQuestions = (questionsArray) => {
+  const questionsSection = document.querySelector("#questions");
+  for (let i = 0; i < questionsArray.length; i++) {
+    let domande = `<div id="domanda${i}" class="hidden">
+      <h1>${questionsArray[i].question}</h1>
+      <form id="question${i}">
+        <div class="radio-container">`;
+
+    let answers = questionsArray[i].answers;
+
+    for (let q = 0; q < answers.length; q++) {
+      domande += `<input id="answer${i}_${q}" type="radio" name="options" value="answer${q}" />
+          <label for="answer${i}_${q}">${answers[q]}</label>`;
+    }
+
+    domande += `</div>
+        <div id="question-footer">
+          <h3>QUESTION ${i + 1} <span>/${questionsArray.length}</span></h3>
+          <a onclick="nextQuestion()"><ion-icon name="arrow-forward-outline" class="arrow"></ion-icon></a>
+        </div>
+      </form>
+    </div>`;
+
+    questionsSection.innerHTML += domande;
+    document.querySelector("#questions").classList.remove("hidden");
+  }
+  nextQuestion();
+};
+
+const nextQuestion = () => {
+  switch (true) {
+    case activeQuestion < 0:
+      activeQuestion += 1;
+      console.log(activeQuestion);
+      document
+        .querySelector(`#domanda${activeQuestion}`)
+        .classList.remove("hidden");
+      console.log(activeQuestion);
+      break;
+    case activeQuestion >= 0 && activeQuestion < questions.length - 1:
+      document
+        .querySelector(`#domanda${activeQuestion}`)
+        .classList.add("hidden");
+      addResponseToArray(activeQuestion);
+      activeQuestion++;
+      document
+        .querySelector(`#domanda${activeQuestion}`)
+        .classList.remove("hidden");
+      break;
+    default:
+      document
+        .querySelector(`#domanda${activeQuestion}`)
+        .classList.add("hidden");
+      addResponseToArray(activeQuestion);
+      showResults();
+      break;
+  }
+
+  //AZZERARE IL TIMER E MOSTRARE LA NUOVA DOMANDA
+};
+
+const showResults = () => {
+  punteggio();
+  drawChart();
+  listAnswers();
+  document.getElementById("results").classList.remove("hidden");
+};
+
+const addResponseToArray = (indice) => {
+  let risposta = document.querySelector(
+    `#question${indice} input[type="radio"]:checked + label `
+  );
+  if (risposta !== null) {
+    arrayRisposte[indice] = risposta.innerHTML;
+  } else {
+    arrayRisposte[indice] = "N/A";
+  }
+};
+
+const punteggio = () => {
+  const domandeTotali = questions.length;
+  let risposteCorrette = 0;
+  let risposteErrate = 0;
+  for (let index = 0; index < questions.length; index++) {
+    if (questions[index].correct_answer === arrayRisposte[index]) {
+      risposteCorrette += 1;
+    } else {
+      risposteErrate += 1;
+    }
+  }
+  const percentualeCorrette = (risposteCorrette * 100) / domandeTotali;
+  const percentualeErrate = 100 - percentualeCorrette;
+  return {
+    domandeTotali,
+    risposteCorrette,
+    risposteErrate,
+    percentualeCorrette,
+    percentualeErrate,
+  };
+};
+
+const drawChart = () => {
+  const risultati = punteggio();
+  if (risultati.percentualeCorrette >= 60) {
+    innergraphic = `Congratulations! <br />You passed the exam. <br />We'll send you the
+            certificate in few minutes. <br />
+            Check your email (including promotions / spam folder)`;
+  } else {
+    innergraphic = `Too bad, <br />you didn't pass the exam. <br />Contact your teaching assistant!<br />
+          `;
+  }
+  console.log(innergraphic);
+  const disegnaRisultati = `<div>
+          <h2>Correct</h2>
+          <h2>${risultati.percentualeCorrette}%</h2>
+          <p>${risultati.risposteCorrette}/${
+    risultati.domandeTotali
+  } questions</p>
+        </div>
+
+        <div class="single-chart">
+          <svg viewBox="0 0 36 36" class="circular-chart color">
+            <path
+              class="circle-bg"
+              d="M18 2.0845
+              a 15.9155 15.9155 0 0 1 0 31.831
+              a 15.9155 15.9155 0 0 1 0 -31.831"
+            />
+            <path
+              class="circle"
+              stroke-dasharray="${Math.floor(
+                risultati.percentualeCorrette
+              )}, 100"
+              d="M18 2.0845
+              a 15.9155 15.9155 0 0 1 0 31.831
+              a 15.9155 15.9155 0 0 1 0 -31.831"
+            />
+          </svg>
+          <div class="innergraphic">
+            ${innergraphic}
+          </div>
+        </div>
+
+        <div class="align-right">
+          <h2>Wrong</h2>
+          <h2>${risultati.percentualeErrate}%</h2>
+          <p>${risultati.risposteErrate}/${
+    risultati.domandeTotali
+  } questions</p>
+        </div>`;
+  const chartSection = document.querySelector("#chart-section");
+  chartSection.innerHTML = disegnaRisultati;
+};
+
+const listAnswers = () => {
+  let schedaRisposte = "";
+  for (let q = 0; q < questions.length; q++) {
+    if (arrayRisposte[q] === questions[q].correct_answer) {
+      rispostadata = `<ion-icon name="close-outline" style="color: green;"></ion-icon>${arrayRisposte[q]}`
+    } else if (arrayRisposte[q] === "N/A") {
+      rispostadata = `<ion-icon name="close-outline" style= "color: red;"></ion-icon>${arrayRisposte[q]}`
+    } else {
+      rispostadata = `<ion-icon name="close-outline" style= "color: red;"></ion-icon>${arrayRisposte[q]}`
+    }
+    schedaRisposte += `<div id="answer${q}" class="answer">
+            <div>
+              <h6>${questions[q].question}</h6>
+              <ul>
+                <li><ion-icon name="close-outline" style="color: green;"></ion-icon>${questions[q].correct_answer}</li>`;
+    for (let ia = 0; ia < questions[q].incorrect_answers.length; ia++) {
+      schedaRisposte += `<li><ion-icon name="close-outline" style= "color: red;"></ion-icon>${questions[q].incorrect_answers[ia]}</li>`;
+    }
+    schedaRisposte += `
+              </ul>
+            </div>
+            <div>
+              <h6>La tua risposta:</h6>
+              <p>${rispostadata}</p>
+            </div>
+          </div>`;
+  }
+  const sezioneRisposte = document.querySelector(".answers");
+  sezioneRisposte.innerHTML = schedaRisposte;
+};
 
 const feedbackSection = document.querySelector("#fieldsetFeedback");
 const stelle = 10;
