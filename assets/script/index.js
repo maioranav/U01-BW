@@ -195,6 +195,7 @@ const nextQuestion = () => {
 const showResults = () => {
   punteggio();
   drawChart();
+  listAnswers();
   document.getElementById("results").classList.remove("hidden");
 };
 
@@ -282,6 +283,30 @@ const drawChart = () => {
         </div>`;
   const chartSection = document.querySelector("#chart-section");
   chartSection.innerHTML = disegnaRisultati;
+};
+
+const listAnswers = () => {
+  let schedaRisposte = "";
+  for (let q = 0; q < questions.length; q++) {
+    schedaRisposte += `<div id="answer${q}" class="answer">
+            <div>
+              <h6>${questions[q].question}</h6>
+              <ul>
+                <li>${questions[q].correct_answer}</li>`;
+    for (let ia = 0; ia < questions[q].incorrect_answers.length; ia++) {
+      schedaRisposte += `<li>${questions[q].incorrect_answers[ia]}</li>`;
+    }
+    schedaRisposte += `
+              </ul>
+            </div>
+            <div>
+              <h6>La tua risposta:</h6>
+              <p>${arrayRisposte[q]}</p>
+            </div>
+          </div>`;
+  }
+  const sezioneRisposte = document.querySelector(".answers");
+  sezioneRisposte.innerHTML = schedaRisposte;
 };
 
 const feedbackSection = document.querySelector("#fieldsetFeedback");
