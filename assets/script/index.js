@@ -94,6 +94,28 @@ const questions = [
   },
 ];
 
+const shuffle = (array) => {
+  let currentIndex = array.length,
+    randomIndex;
+
+  while (currentIndex != 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
+  }
+  return array;
+};
+
+for (let i = 0; i < questions.length; i++) {
+  questions[i].answers = [...questions[i].incorrect_answers];
+  questions[i].answers.push(questions[i].correct_answer);
+  shuffle(questions[i].answers);
+}
+console.log(questions);
+
 const startQuestions = () => {
   const verificaSpunta = document.querySelector("#checkb").checked;
   if (verificaSpunta === true) {
@@ -116,7 +138,7 @@ const loadQuestions = (questionsArray) => {
       <form id="question${i}">
         <div class="radio-container">`;
 
-    let answers = questionsArray[i].incorrect_answers;
+    let answers = questionsArray[i].answers;
 
     for (let q = 0; q < answers.length; q++) {
       domande += `<input id="answer${q}" type="radio" name="options" value="answer${q}" />
