@@ -93,6 +93,12 @@ const questions = [
     incorrect_answers: ["Python", "C", "Jakarta"],
   },
 ];
+for (let i = 0; i < questions.length; i++) {
+   questions[i].answers = [ ... questions[i].incorrect_answers];
+   questions[i].answers.push(questions[i].correct_answer);
+  
+}
+console.log(questions)
 
 const startQuestions = () => {
   const verificaSpunta = document.querySelector("#checkb").checked;
