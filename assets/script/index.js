@@ -288,11 +288,18 @@ const drawChart = () => {
 const listAnswers = () => {
   let schedaRisposte = "";
   for (let q = 0; q < questions.length; q++) {
+    if (arrayRisposte[q] === questions[q].correct_answer) {
+      rispostadata = `<ion-icon name="close-outline" style="color: green;"></ion-icon>${arrayRisposte[q]}`
+    } else if (arrayRisposte[q] === "N/A") {
+      rispostadata = `<ion-icon name="close-outline" style= "color: red;"></ion-icon>${arrayRisposte[q]}`
+    } else {
+      rispostadata = `<ion-icon name="close-outline" style= "color: red;"></ion-icon>${arrayRisposte[q]}`
+    }
     schedaRisposte += `<div id="answer${q}" class="answer">
             <div>
               <h6>${questions[q].question}</h6>
               <ul>
-                <li><ion-icon name="checkmark-outline" style= "color: green;"></ion-icon>${questions[q].correct_answer}</li>`;
+                <li><ion-icon name="close-outline" style="color: green;"></ion-icon>${questions[q].correct_answer}</li>`;
     for (let ia = 0; ia < questions[q].incorrect_answers.length; ia++) {
       schedaRisposte += `<li><ion-icon name="close-outline" style= "color: red;"></ion-icon>${questions[q].incorrect_answers[ia]}</li>`;
     }
@@ -301,7 +308,7 @@ const listAnswers = () => {
             </div>
             <div>
               <h6>La tua risposta:</h6>
-              <p>${arrayRisposte[q]}</p>
+              <p>${rispostadata}</p>
             </div>
           </div>`;
   }
