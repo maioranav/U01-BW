@@ -92,6 +92,96 @@ const questions = [
     correct_answer: "Java",
     incorrect_answers: ["Python", "C", "Jakarta"],
   },
+  {
+    category: "Science: Computers",
+    type: "boolean",
+    difficulty: "medium",
+    question:
+      "The very first recorded computer &quot;bug&quot; was a moth found inside a Harvard Mark II computer.",
+    correct_answer: "True",
+    incorrect_answers: ["False"],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "medium",
+    question: "What five letter word is the motto of the IBM Computer company?",
+    correct_answer: "Think",
+    incorrect_answers: ["Click", "Logic", "Pixel"],
+  },
+  {
+    category: "Science: Computers",
+    type: "boolean",
+    difficulty: "medium",
+    question:
+      "To bypass US Munitions Export Laws, the creator of the PGP published all the source code in book form. ",
+    correct_answer: "True",
+    incorrect_answers: ["False"],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "medium",
+    question: "On which day did the World Wide Web go online?",
+    correct_answer: "December 20, 1990",
+    incorrect_answers: [
+      "December 17, 1996",
+      "November 12, 1990",
+      "November 24, 1995",
+    ],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "medium",
+    question:
+      "Which coding language was the #1 programming language in terms of usage on GitHub in 2015?",
+    correct_answer: "JavaScript",
+    incorrect_answers: ["C#", "Python", "PHP"],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "medium",
+    question:
+      "What is the correct term for the metal object in between the CPU and the CPU fan within a computer system?",
+    correct_answer: "Heat Sink",
+    incorrect_answers: ["CPU Vent", "Temperature Decipator", "Heat Vent"],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "medium",
+    question: "How fast is USB 3.1 Gen 2 theoretically?",
+    correct_answer: "10 Gb/s",
+    incorrect_answers: ["5 Gb/s", "8 Gb/s", "1 Gb/s"],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "medium",
+    question: ".at is the top-level domain for what country?",
+    correct_answer: "Austria",
+    incorrect_answers: ["Argentina", "Australia", "Angola"],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "medium",
+    question:
+      "In programming, what do you call functions with the same name but different implementations?",
+    correct_answer: "Overloading",
+    incorrect_answers: ["Overriding", "Abstracting", "Inheriting"],
+  },
+  {
+    category: "Science: Computers",
+    type: "boolean",
+    difficulty: "medium",
+    question:
+      "A Boolean value of &quot;0&quot; represents which of these words?",
+    correct_answer: "False",
+    incorrect_answers: ["True"],
+  },
 ];
 const arrayRisposte = [];
 
@@ -110,17 +200,15 @@ const shuffle = (array) => {
   return array;
 };
 
-for (let i = 0; i < questions.length; i++) {
-  questions[i].answers = [...questions[i].incorrect_answers];
-  questions[i].answers.push(questions[i].correct_answer);
-  shuffle(questions[i].answers);
-}
-console.log(questions);
-
 const startQuestions = () => {
   const verificaSpunta = document.querySelector("#checkb").checked;
   if (verificaSpunta === true) {
     document.querySelector("#welcome").classList.add("hidden");
+    for (let i = 0; i < questions.length; i++) {
+      questions[i].answers = [...questions[i].incorrect_answers];
+      questions[i].answers.push(questions[i].correct_answer);
+      shuffle(questions[i].answers);
+    }
     loadQuestions(questions);
   } else {
     alert(
