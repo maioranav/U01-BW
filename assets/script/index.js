@@ -92,8 +92,202 @@ const questions = [
     correct_answer: "Java",
     incorrect_answers: ["Python", "C", "Jakarta"],
   },
+  {
+    category: "Science: Computers",
+    type: "boolean",
+    difficulty: "medium",
+    question:
+      "The very first recorded computer &quot;bug&quot; was a moth found inside a Harvard Mark II computer.",
+    correct_answer: "True",
+    incorrect_answers: ["False"],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "medium",
+    question: "What five letter word is the motto of the IBM Computer company?",
+    correct_answer: "Think",
+    incorrect_answers: ["Click", "Logic", "Pixel"],
+  },
+  {
+    category: "Science: Computers",
+    type: "boolean",
+    difficulty: "medium",
+    question:
+      "To bypass US Munitions Export Laws, the creator of the PGP published all the source code in book form. ",
+    correct_answer: "True",
+    incorrect_answers: ["False"],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "medium",
+    question: "On which day did the World Wide Web go online?",
+    correct_answer: "December 20, 1990",
+    incorrect_answers: [
+      "December 17, 1996",
+      "November 12, 1990",
+      "November 24, 1995",
+    ],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "medium",
+    question:
+      "Which coding language was the #1 programming language in terms of usage on GitHub in 2015?",
+    correct_answer: "JavaScript",
+    incorrect_answers: ["C#", "Python", "PHP"],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "medium",
+    question:
+      "What is the correct term for the metal object in between the CPU and the CPU fan within a computer system?",
+    correct_answer: "Heat Sink",
+    incorrect_answers: ["CPU Vent", "Temperature Decipator", "Heat Vent"],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "medium",
+    question: "How fast is USB 3.1 Gen 2 theoretically?",
+    correct_answer: "10 Gb/s",
+    incorrect_answers: ["5 Gb/s", "8 Gb/s", "1 Gb/s"],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "medium",
+    question: ".at is the top-level domain for what country?",
+    correct_answer: "Austria",
+    incorrect_answers: ["Argentina", "Australia", "Angola"],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "medium",
+    question:
+      "In programming, what do you call functions with the same name but different implementations?",
+    correct_answer: "Overloading",
+    incorrect_answers: ["Overriding", "Abstracting", "Inheriting"],
+  },
+  {
+    category: "Science: Computers",
+    type: "boolean",
+    difficulty: "medium",
+    question:
+      "A Boolean value of &quot;0&quot; represents which of these words?",
+    correct_answer: "False",
+    incorrect_answers: ["True"],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "hard",
+    question:
+      "The Harvard architecture for micro-controllers added which additional bus?",
+    correct_answer: "Instruction",
+    incorrect_answers: ["Address", "Data", "Control"],
+  },
+  {
+    category: "Science: Computers",
+    type: "boolean",
+    difficulty: "hard",
+    question: "DHCP stands for Dynamic Host Configuration Port.",
+    correct_answer: "False",
+    incorrect_answers: ["True"],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "hard",
+    question:
+      "Which of these was the name of a bug found in April 2014 in the publicly available OpenSSL cryptography library?",
+    correct_answer: "Heartbleed",
+    incorrect_answers: ["Shellshock", "Corrupted Blood", "Shellscript"],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "hard",
+    question:
+      "Which of the following is the oldest of these computers by release date?",
+    correct_answer: "TRS-80",
+    incorrect_answers: ["Commodore 64", "ZX Spectrum", "Apple 3"],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "hard",
+    question:
+      "America Online (AOL) started out as which of these online service providers?",
+    correct_answer: "Quantum Link",
+    incorrect_answers: ["CompuServe", "Prodigy", "GEnie"],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "hard",
+    question:
+      "Which of these is not a key value of Agile software development?",
+    correct_answer: "Comprehensive documentation",
+    incorrect_answers: [
+      "Individuals and interactions",
+      "Customer collaboration",
+      "Responding to change",
+    ],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "hard",
+    question: "What vulnerability ranked #1 on the OWASP Top 10 in 2013?",
+    correct_answer: "Injection ",
+    incorrect_answers: [
+      "Broken Authentication",
+      "Cross-Site Scripting",
+      "Insecure Direct Object References",
+    ],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "hard",
+    question: "The acronym &quot;RIP&quot; stands for which of these?",
+    correct_answer: "Routing Information Protocol",
+    incorrect_answers: [
+      "Runtime Instance Processes",
+      "Regular Interval Processes",
+      "Routine Inspection Protocol",
+    ],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "hard",
+    question:
+      "What type of sound chip does the Super Nintendo Entertainment System (SNES) have?",
+    correct_answer: "ADPCM Sampler",
+    incorrect_answers: [
+      "FM Synthesizer",
+      "Programmable Sound Generator (PSG)",
+      "PCM Sampler",
+    ],
+  },
+  {
+    category: "Science: Computers",
+    type: "boolean",
+    difficulty: "hard",
+    question:
+      "The T-Mobile Sidekick smartphone is a re-branded version of the Danger Hiptop.",
+    correct_answer: "True",
+    incorrect_answers: ["False"],
+  },
 ];
 const arrayRisposte = [];
+let arrInUse;
 
 const shuffle = (array) => {
   let currentIndex = array.length,
@@ -110,18 +304,49 @@ const shuffle = (array) => {
   return array;
 };
 
-for (let i = 0; i < questions.length; i++) {
-  questions[i].answers = [...questions[i].incorrect_answers];
-  questions[i].answers.push(questions[i].correct_answer);
-  shuffle(questions[i].answers);
-}
-console.log(questions);
-
 const startQuestions = () => {
   const verificaSpunta = document.querySelector("#checkb").checked;
   if (verificaSpunta === true) {
+    for (let i = 0; i < questions.length; i++) {
+      questions[i].answers = [...questions[i].incorrect_answers];
+      questions[i].answers.push(questions[i].correct_answer);
+      shuffle(questions[i].answers);
+    }
     document.querySelector("#welcome").classList.add("hidden");
-    loadQuestions(questions);
+    const difficulty = document.getElementById("difficulty").value;
+    switch (difficulty) {
+      case "0":
+        const qEasy = questions.filter(
+          (question) => question.difficulty === "easy"
+        );
+        arrInUse = qEasy;
+        loadQuestions(qEasy);
+
+        break;
+      case "1":
+        const qMedium = questions.filter(
+          (question) => question.difficulty === "medium"
+        );
+        arrInUse = qMedium;
+        loadQuestions(qMedium);
+
+        break;
+      case "2":
+        const qHard = questions.filter(
+          (question) => question.difficulty === "hard"
+        );
+        arrInUse = qHard;
+        loadQuestions(qHard);
+
+        break;
+
+      default:
+        const qExtreme = [...questions];
+        arrInUse = qExtreme;
+        loadQuestions(qExtreme);
+        break;
+    }
+    console.log(questions);
   } else {
     alert(
       "You must confirm that you'll answer yourself without help from anyone."
@@ -181,7 +406,7 @@ function formatTimeLeft(time) {
   }
 
   // The output in MM:SS format
-  return `${minutes}:${seconds}`;
+  return `${seconds}`;
 }
 
 let timerInterval = null;
@@ -205,7 +430,7 @@ function startTimer() {
 }
 
 function resetTimer() {
-  timePassed = -1;
+  timePassed = 0;
 }
 
 function stopTimer() {
@@ -214,7 +439,7 @@ function stopTimer() {
 }
 
 // Warning occurs at 10s
-const WARNING_THRESHOLD = 10;
+const WARNING_THRESHOLD = 15;
 // Alert occurs at 5s
 const ALERT_THRESHOLD = 5;
 
@@ -268,6 +493,16 @@ function setRemainingPathColor(timeLeft) {
     document
       .getElementById("base-timer-path-remaining")
       .classList.add(warning.color);
+  } else {
+    document
+      .getElementById("base-timer-path-remaining")
+      .classList.remove(alert.color);
+    document
+      .getElementById("base-timer-path-remaining")
+      .classList.remove(warning.color);
+    document
+      .getElementById("base-timer-path-remaining")
+      .classList.add(info.color);
   }
 }
 
@@ -288,10 +523,10 @@ document.getElementById("app").innerHTML = `
         "
       ></path>
       </g>
-      </svg>
+      </svg><span style="font-size: 8px; margin-top: -24px;"class="base-timer__label">SECONDS</span><br>
       <span id="base-timer-label" class="base-timer__label">
       ${formatTimeLeft(timeLeft)}
-      </span>
+      </span ><br><span style="font-size: 8px; margin-top: 24px;"class="base-timer__label">REMAINING</span>
       </div>
       `;
 
@@ -305,9 +540,10 @@ const nextQuestion = () => {
       document
         .querySelector(`#domanda${activeQuestion}`)
         .classList.remove("hidden");
+      document.querySelector(`#app`).classList.remove("hidden");
       startTimer();
       break;
-    case activeQuestion >= 0 && activeQuestion < questions.length - 1:
+    case activeQuestion >= 0 && activeQuestion < arrInUse.length - 1:
       document
         .querySelector(`#domanda${activeQuestion}`)
         .classList.add("hidden");
@@ -351,11 +587,11 @@ const addResponseToArray = (indice) => {
 };
 
 const punteggio = () => {
-  const domandeTotali = questions.length;
+  const domandeTotali = arrInUse.length;
   let risposteCorrette = 0;
   let risposteErrate = 0;
-  for (let index = 0; index < questions.length; index++) {
-    if (questions[index].correct_answer === arrayRisposte[index]) {
+  for (let index = 0; index < arrInUse.length; index++) {
+    if (arrInUse[index].correct_answer === arrayRisposte[index]) {
       risposteCorrette += 1;
     } else {
       risposteErrate += 1;
@@ -375,17 +611,17 @@ const punteggio = () => {
 const drawChart = () => {
   const risultati = punteggio();
   if (risultati.percentualeCorrette >= 60) {
-    innergraphic = `Congratulations! <br />You passed the exam. <br />We'll send you the
+    innergraphic = `<h4>Congratulations! </h4><h4> <br />You passed the exam. </h4><br />We'll send you the
             certificate in few minutes. <br />
             Check your email (including promotions / spam folder)`;
   } else {
-    innergraphic = `Too bad, <br />you didn't pass the exam. <br />Contact your teaching assistant!<br />
+    innergraphic = `<h4>Too bad, <br />you didn't pass the exam. </h4><br /><br />Contact your teaching assistant!<br />
           `;
   }
   console.log(innergraphic);
   const disegnaRisultati = `<div>
           <h2>Correct</h2>
-          <h2>${risultati.percentualeCorrette}%</h2>
+          <h2>${risultati.percentualeCorrette.toFixed(1)}%</h2>
           <p>${risultati.risposteCorrette}/${
     risultati.domandeTotali
   } questions</p>
@@ -416,7 +652,7 @@ const drawChart = () => {
 
         <div class="align-right">
           <h2>Wrong</h2>
-          <h2>${risultati.percentualeErrate}%</h2>
+          <h2>${risultati.percentualeErrate.toFixed(1)}%</h2>
           <p>${risultati.risposteErrate}/${
     risultati.domandeTotali
   } questions</p>
@@ -427,9 +663,9 @@ const drawChart = () => {
 
 const listAnswers = () => {
   let schedaRisposte = "";
-  for (let q = 0; q < questions.length; q++) {
-    if (arrayRisposte[q] === questions[q].correct_answer) {
-      rispostadata = `<ion-icon name="close-outline" style="color: green;"></ion-icon>${arrayRisposte[q]}`;
+  for (let q = 0; q < arrInUse.length; q++) {
+    if (arrayRisposte[q] === arrInUse[q].correct_answer) {
+      rispostadata = `<ion-icon name="checkmark-outline" style="color: green;"></ion-icon>${arrayRisposte[q]}`;
     } else if (arrayRisposte[q] === "N/A") {
       rispostadata = `<ion-icon name="close-outline" style= "color: red;"></ion-icon>${arrayRisposte[q]}`;
     } else {
@@ -437,11 +673,11 @@ const listAnswers = () => {
     }
     schedaRisposte += `<div id="answer${q}" class="answer">
             <div>
-              <h6>${questions[q].question}</h6>
+              <h6>${arrInUse[q].question}</h6>
               <ul>
-                <li><ion-icon name="close-outline" style="color: green;"></ion-icon>${questions[q].correct_answer}</li>`;
-    for (let ia = 0; ia < questions[q].incorrect_answers.length; ia++) {
-      schedaRisposte += `<li><ion-icon name="close-outline" style= "color: red;"></ion-icon>${questions[q].incorrect_answers[ia]}</li>`;
+                <li><ion-icon name="checkmark-outline" style="color: green;"></ion-icon>${arrInUse[q].correct_answer}</li>`;
+    for (let ia = 0; ia < arrInUse[q].incorrect_answers.length; ia++) {
+      schedaRisposte += `<li><ion-icon name="close-outline" style= "color: red;"></ion-icon>${arrInUse[q].incorrect_answers[ia]}</li>`;
     }
     schedaRisposte += `
               </ul>
