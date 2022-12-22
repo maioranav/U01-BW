@@ -193,10 +193,10 @@ button {
 }
 .feedbackrating img {
   filter: none;
-  -webkit-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -o-filter: grayscale(100%);
+  -webkit-filter: grayscale(100%) brightness(0%) opacity(50%);
+  -moz-filter: grayscale(100%) brightness(0%) opacity(50%);
+  -ms-filter: grayscale(100%) brightness(0%) opacity(50%);
+  -o-filter: grayscale(100%) brightness(0%) opacity(50%);
   cursor: pointer;
 }
 
@@ -315,7 +315,7 @@ h3 {
 
 /**************************** TIMER *****************************************/
 #app {
-  float: inline-end;
+  float: right;
   margin-top: 1em;
 }
 /* Sets the containers height and width */
