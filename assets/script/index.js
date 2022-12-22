@@ -484,7 +484,13 @@ const selectFb = (id) => {
 };
 
 const sendFeedback = () => {
-  const feedbackText = "costante definita manualmente";
-  const feedbackValue = 7;
-  console.log({ feedbackValue, feedbackText });
+  const feedbackText = document.getElementById("comment").value;
+  const feedbackValue = document.querySelector(
+    ".feedbackrating input[type='radio']:checked"
+  );
+  if (feedbackValue !== null) {
+    console.log({ feedbackValue: feedbackValue.value, feedbackText });
+  } else {
+    alert("You've not given a rating! Nothing to send.");
+  }
 };
