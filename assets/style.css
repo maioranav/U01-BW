@@ -362,6 +362,7 @@ h3 {
 .base-timer__svg {
   /* Flips the svg and makes the animation to move left-to-right */
   transform: scaleX(-1);
+  filter: drop-shadow(4px 4px 5px #00000078);
 }
 
 .base-timer__path-remaining.green {
