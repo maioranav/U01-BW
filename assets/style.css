@@ -279,7 +279,7 @@ h3 {
 }
 
 /********** RESULTS PAGE ANSWERS ***********/
-#results h2 {
+.yourAnswersH2 {
   margin-top: 3em;
 }
 .answer {
