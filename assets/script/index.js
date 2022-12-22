@@ -182,6 +182,109 @@ const questions = [
     correct_answer: "False",
     incorrect_answers: ["True"],
   },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "hard",
+    question:
+      "The Harvard architecture for micro-controllers added which additional bus?",
+    correct_answer: "Instruction",
+    incorrect_answers: ["Address", "Data", "Control"],
+  },
+  {
+    category: "Science: Computers",
+    type: "boolean",
+    difficulty: "hard",
+    question: "DHCP stands for Dynamic Host Configuration Port.",
+    correct_answer: "False",
+    incorrect_answers: ["True"],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "hard",
+    question:
+      "Which of these was the name of a bug found in April 2014 in the publicly available OpenSSL cryptography library?",
+    correct_answer: "Heartbleed",
+    incorrect_answers: ["Shellshock", "Corrupted Blood", "Shellscript"],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "hard",
+    question:
+      "Which of the following is the oldest of these computers by release date?",
+    correct_answer: "TRS-80",
+    incorrect_answers: ["Commodore 64", "ZX Spectrum", "Apple 3"],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "hard",
+    question:
+      "America Online (AOL) started out as which of these online service providers?",
+    correct_answer: "Quantum Link",
+    incorrect_answers: ["CompuServe", "Prodigy", "GEnie"],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "hard",
+    question:
+      "Which of these is not a key value of Agile software development?",
+    correct_answer: "Comprehensive documentation",
+    incorrect_answers: [
+      "Individuals and interactions",
+      "Customer collaboration",
+      "Responding to change",
+    ],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "hard",
+    question: "What vulnerability ranked #1 on the OWASP Top 10 in 2013?",
+    correct_answer: "Injection ",
+    incorrect_answers: [
+      "Broken Authentication",
+      "Cross-Site Scripting",
+      "Insecure Direct Object References",
+    ],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "hard",
+    question: "The acronym &quot;RIP&quot; stands for which of these?",
+    correct_answer: "Routing Information Protocol",
+    incorrect_answers: [
+      "Runtime Instance Processes",
+      "Regular Interval Processes",
+      "Routine Inspection Protocol",
+    ],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "hard",
+    question:
+      "What type of sound chip does the Super Nintendo Entertainment System (SNES) have?",
+    correct_answer: "ADPCM Sampler",
+    incorrect_answers: [
+      "FM Synthesizer",
+      "Programmable Sound Generator (PSG)",
+      "PCM Sampler",
+    ],
+  },
+  {
+    category: "Science: Computers",
+    type: "boolean",
+    difficulty: "hard",
+    question:
+      "The T-Mobile Sidekick smartphone is a re-branded version of the Danger Hiptop.",
+    correct_answer: "True",
+    incorrect_answers: ["False"],
+  },
 ];
 const arrayRisposte = [];
 
@@ -203,13 +306,41 @@ const shuffle = (array) => {
 const startQuestions = () => {
   const verificaSpunta = document.querySelector("#checkb").checked;
   if (verificaSpunta === true) {
-    document.querySelector("#welcome").classList.add("hidden");
     for (let i = 0; i < questions.length; i++) {
       questions[i].answers = [...questions[i].incorrect_answers];
       questions[i].answers.push(questions[i].correct_answer);
       shuffle(questions[i].answers);
     }
-    loadQuestions(questions);
+    document.querySelector("#welcome").classList.add("hidden");
+    const difficulty = document.getElementById("difficulty").value;
+    switch (difficulty) {
+      case "0":
+        const qEasy = questions.filter(
+          (question) => question.difficulty === "easy"
+        );
+        loadQuestions(qEasy);
+
+        break;
+      case "1":
+        const qMedium = questions.filter(
+          (question) => question.difficulty === "medium"
+        );
+        loadQuestions(qMedium);
+
+        break;
+      case "2":
+        const qHard = questions.filter(
+          (question) => question.difficulty === "hard"
+        );
+        loadQuestions(qHard);
+
+        break;
+
+      default:
+        loadQuestions(questions);
+        break;
+    }
+    console.log(questions);
   } else {
     alert(
       "You must confirm that you'll answer yourself without help from anyone."
