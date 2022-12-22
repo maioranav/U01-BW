@@ -162,7 +162,7 @@ const loadQuestions = (questionsArray) => {
 
 // **************************************** TIMER *********************************************** //
 // Start with an initial value of 20 seconds
-const TIME_LIMIT = 5;
+const TIME_LIMIT = 30;
 
 // Initially, no time has passed, but this will count up
 // and subtract from the TIME_LIMIT
@@ -193,12 +193,24 @@ function startTimer() {
     // The amount of time passed increments by one
     timePassed = timePassed += 1;
     timeLeft = TIME_LIMIT - timePassed;
+    if (timeLeft <= 0) {
+      nextQuestion();
+    }
 
     // The time left label is updated
     document.getElementById("base-timer-label").innerHTML =
       formatTimeLeft(timeLeft);
     setCircleDasharray();
   }, 1000);
+}
+
+function resetTimer() {
+  timePassed = -1;
+}
+
+function stopTimer() {
+  timeLeft = TIME_LIMIT;
+  clearInterval(timerInterval);
 }
 
 // Warning occurs at 10s
@@ -299,6 +311,7 @@ const nextQuestion = () => {
       document
         .querySelector(`#domanda${activeQuestion}`)
         .classList.add("hidden");
+      resetTimer();
       addResponseToArray(activeQuestion);
       activeQuestion++;
       document
@@ -309,7 +322,9 @@ const nextQuestion = () => {
       document
         .querySelector(`#domanda${activeQuestion}`)
         .classList.add("hidden");
+      document.querySelector(`#app`).classList.add("hidden");
       addResponseToArray(activeQuestion);
+      stopTimer();
       showResults();
       break;
   }
