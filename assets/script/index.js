@@ -305,6 +305,7 @@ const nextQuestion = () => {
       document
         .querySelector(`#domanda${activeQuestion}`)
         .classList.remove("hidden");
+      document.querySelector(`#app`).classList.remove("hidden");
       startTimer();
       break;
     case activeQuestion >= 0 && activeQuestion < questions.length - 1:
