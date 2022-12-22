@@ -1,6 +1,6 @@
 body {
   font-family: "Inter", sans-serif;
-  background-image: url(./imgs/bg.jpg);
+  background: url(./imgs/bg.jpg) no-repeat center center fixed;
   background-size: cover;
   color: white;
   font-size: 16px;
@@ -283,7 +283,7 @@ h3 {
   margin-top: 3em;
 }
 .answer {
-  background-color: #ffffff9b;
+  background-color: #ffffff;
   border: 2px solid #d20094;
   display: flex;
   justify-content: space-between;
@@ -291,6 +291,10 @@ h3 {
   margin: 2em auto;
   padding: 20px;
   font-weight: 400;
+}
+.answer ion-icon {
+  font-size: 16px;
+  margin-right: 10px;
 }
 .answer h6 {
   color: #d20094;
