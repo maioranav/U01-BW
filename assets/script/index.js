@@ -197,7 +197,28 @@ function startTimer() {
     // The time left label is updated
     document.getElementById("base-timer-label").innerHTML =
       formatTimeLeft(timeLeft);
+    setCircleDasharray();
   }, 1000);
+}
+
+const COLOR_CODES = {
+  info: {
+    color: "green",
+  },
+};
+
+let remainingPathColor = COLOR_CODES.info.color;
+// Divides time left by the defined time limit.
+function calculateTimeFraction() {
+  return timeLeft / TIME_LIMIT;
+}
+
+// Update the dasharray value as time passes, starting with 283
+function setCircleDasharray() {
+  const circleDasharray = `${(calculateTimeFraction() * 283).toFixed(0)} 283`;
+  document
+    .getElementById("base-timer-path-remaining")
+    .setAttribute("stroke-dasharray", circleDasharray);
 }
 
 document.getElementById("app").innerHTML = `
@@ -205,6 +226,17 @@ document.getElementById("app").innerHTML = `
   <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <g class="base-timer__circle">
       <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45" />
+      <path
+        id="base-timer-path-remaining"
+        stroke-dasharray="283 283"
+        class="base-timer__path-remaining ${remainingPathColor}"
+        d="
+          M 50, 50
+          m -45, 0
+          a 45,45 0 1,0 90,0
+          a 45,45 0 1,0 -90,0
+        "
+      ></path>
       </g>
       </svg>
       <span id="base-timer-label" class="base-timer__label">
