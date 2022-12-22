@@ -206,7 +206,6 @@ function startTimer() {
 
 function resetTimer() {
   timePassed = 0;
-  setRemainingPathColor(timeLeft);
 }
 
 function stopTimer() {
@@ -269,6 +268,16 @@ function setRemainingPathColor(timeLeft) {
     document
       .getElementById("base-timer-path-remaining")
       .classList.add(warning.color);
+  } else {
+    document
+      .getElementById("base-timer-path-remaining")
+      .classList.remove(alert.color);
+    document
+      .getElementById("base-timer-path-remaining")
+      .classList.remove(warning.color);
+    document
+      .getElementById("base-timer-path-remaining")
+      .classList.add(info.color);
   }
 }
 
