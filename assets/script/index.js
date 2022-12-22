@@ -162,7 +162,7 @@ const loadQuestions = (questionsArray) => {
 
 // **************************************** TIMER *********************************************** //
 // Start with an initial value of 20 seconds
-const TIME_LIMIT = 30;
+const TIME_LIMIT = 5;
 
 // Initially, no time has passed, but this will count up
 // and subtract from the TIME_LIMIT
@@ -201,16 +201,31 @@ function startTimer() {
   }, 1000);
 }
 
+// Warning occurs at 10s
+const WARNING_THRESHOLD = 10;
+// Alert occurs at 5s
+const ALERT_THRESHOLD = 5;
+
 const COLOR_CODES = {
   info: {
     color: "green",
+  },
+  warning: {
+    color: "orange",
+    threshold: WARNING_THRESHOLD,
+  },
+  alert: {
+    color: "red",
+    threshold: ALERT_THRESHOLD,
   },
 };
 
 let remainingPathColor = COLOR_CODES.info.color;
 // Divides time left by the defined time limit.
 function calculateTimeFraction() {
-  return timeLeft / TIME_LIMIT;
+  setRemainingPathColor(timeLeft);
+  const rawTimeFraction = timeLeft / TIME_LIMIT;
+  return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
 }
 
 // Update the dasharray value as time passes, starting with 283
@@ -219,6 +234,29 @@ function setCircleDasharray() {
   document
     .getElementById("base-timer-path-remaining")
     .setAttribute("stroke-dasharray", circleDasharray);
+}
+
+function setRemainingPathColor(timeLeft) {
+  const { alert, warning, info } = COLOR_CODES;
+
+  // If the remaining time is less than or equal to 5, remove the "warning" class and apply the "alert" class.
+  if (timeLeft <= alert.threshold) {
+    document
+      .getElementById("base-timer-path-remaining")
+      .classList.remove(warning.color);
+    document
+      .getElementById("base-timer-path-remaining")
+      .classList.add(alert.color);
+
+    // If the remaining time is less than or equal to 10, remove the base color and apply the "warning" class.
+  } else if (timeLeft <= warning.threshold) {
+    document
+      .getElementById("base-timer-path-remaining")
+      .classList.remove(info.color);
+    document
+      .getElementById("base-timer-path-remaining")
+      .classList.add(warning.color);
+  }
 }
 
 document.getElementById("app").innerHTML = `
