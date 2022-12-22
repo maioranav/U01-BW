@@ -287,6 +287,7 @@ const questions = [
   },
 ];
 const arrayRisposte = [];
+let arrInUse;
 
 const shuffle = (array) => {
   let currentIndex = array.length,
@@ -318,6 +319,7 @@ const startQuestions = () => {
         const qEasy = questions.filter(
           (question) => question.difficulty === "easy"
         );
+        arrInUse = qEasy;
         loadQuestions(qEasy);
 
         break;
@@ -325,6 +327,7 @@ const startQuestions = () => {
         const qMedium = questions.filter(
           (question) => question.difficulty === "medium"
         );
+        arrInUse = qMedium;
         loadQuestions(qMedium);
 
         break;
@@ -332,12 +335,15 @@ const startQuestions = () => {
         const qHard = questions.filter(
           (question) => question.difficulty === "hard"
         );
+        arrInUse = qHard;
         loadQuestions(qHard);
 
         break;
 
       default:
-        loadQuestions(questions);
+        const qExtreme = [...questions];
+        arrInUse = qExtreme;
+        loadQuestions(qExtreme);
         break;
     }
     console.log(questions);
@@ -537,7 +543,7 @@ const nextQuestion = () => {
       document.querySelector(`#app`).classList.remove("hidden");
       startTimer();
       break;
-    case activeQuestion >= 0 && activeQuestion < questions.length - 1:
+    case activeQuestion >= 0 && activeQuestion < arrInUse.length - 1:
       document
         .querySelector(`#domanda${activeQuestion}`)
         .classList.add("hidden");
@@ -581,11 +587,11 @@ const addResponseToArray = (indice) => {
 };
 
 const punteggio = () => {
-  const domandeTotali = questions.length;
+  const domandeTotali = arrInUse.length;
   let risposteCorrette = 0;
   let risposteErrate = 0;
-  for (let index = 0; index < questions.length; index++) {
-    if (questions[index].correct_answer === arrayRisposte[index]) {
+  for (let index = 0; index < arrInUse.length; index++) {
+    if (arrInUse[index].correct_answer === arrayRisposte[index]) {
       risposteCorrette += 1;
     } else {
       risposteErrate += 1;
@@ -657,8 +663,8 @@ const drawChart = () => {
 
 const listAnswers = () => {
   let schedaRisposte = "";
-  for (let q = 0; q < questions.length; q++) {
-    if (arrayRisposte[q] === questions[q].correct_answer) {
+  for (let q = 0; q < arrInUse.length; q++) {
+    if (arrayRisposte[q] === arrInUse[q].correct_answer) {
       rispostadata = `<ion-icon name="checkmark-outline" style="color: green;"></ion-icon>${arrayRisposte[q]}`;
     } else if (arrayRisposte[q] === "N/A") {
       rispostadata = `<ion-icon name="close-outline" style= "color: red;"></ion-icon>${arrayRisposte[q]}`;
@@ -667,11 +673,11 @@ const listAnswers = () => {
     }
     schedaRisposte += `<div id="answer${q}" class="answer">
             <div>
-              <h6>${questions[q].question}</h6>
+              <h6>${arrInUse[q].question}</h6>
               <ul>
-                <li><ion-icon name="checkmark-outline" style="color: green;"></ion-icon>${questions[q].correct_answer}</li>`;
-    for (let ia = 0; ia < questions[q].incorrect_answers.length; ia++) {
-      schedaRisposte += `<li><ion-icon name="close-outline" style= "color: red;"></ion-icon>${questions[q].incorrect_answers[ia]}</li>`;
+                <li><ion-icon name="checkmark-outline" style="color: green;"></ion-icon>${arrInUse[q].correct_answer}</li>`;
+    for (let ia = 0; ia < arrInUse[q].incorrect_answers.length; ia++) {
+      schedaRisposte += `<li><ion-icon name="close-outline" style= "color: red;"></ion-icon>${arrInUse[q].incorrect_answers[ia]}</li>`;
     }
     schedaRisposte += `
               </ul>
