@@ -277,6 +277,9 @@ h3 {
   justify-content: space-between;
   margin: 4em auto;
 }
+
+/********** RESULTS PAGE ANSWERS ***********/
+
 .answer {
   background-color: #ffffff9b;
   border: 2px solid #d20094;
@@ -288,12 +291,19 @@ h3 {
 }
 .answer h6 {
   color: #d20094;
+  font-size: 21px;
+  margin: 0;
+}
+.answer div {
+  width: 60%;
+  padding: 20px;
 }
 .answer div:not(:first-of-type) {
   width: 40%;
 }
 .answer ul {
   list-style-type: none;
+  padding: 0;
 }
 
 /**************************** TIMER *****************************************/
