@@ -205,7 +205,8 @@ function startTimer() {
 }
 
 function resetTimer() {
-  timePassed = -1;
+  timePassed = 0;
+  setRemainingPathColor(timeLeft);
 }
 
 function stopTimer() {
@@ -214,7 +215,7 @@ function stopTimer() {
 }
 
 // Warning occurs at 10s
-const WARNING_THRESHOLD = 10;
+const WARNING_THRESHOLD = 15;
 // Alert occurs at 5s
 const ALERT_THRESHOLD = 5;
 

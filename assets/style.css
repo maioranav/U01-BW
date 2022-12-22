@@ -338,6 +338,8 @@ h3 {
 
   /* Sort of an arbitrary number; adjust to your liking */
   font-size: 32px;
+  font-family: "outfit", sans-serif;
+  font-weight: 400;
 }
 
 .base-timer__path-remaining {
@@ -346,7 +348,6 @@ h3 {
   /*stroke-dasharray: 283 283;*/
 
   /* Rounds the line endings to create a seamless circle */
-  stroke-linecap: round;
 
   /* Makes sure the animation starts at the top of the circle */
   transform: rotate(90deg);
