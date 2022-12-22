@@ -181,7 +181,7 @@ function formatTimeLeft(time) {
   }
 
   // The output in MM:SS format
-  return `${minutes}:${seconds}`;
+  return `${seconds}`;
 }
 
 let timerInterval = null;
@@ -288,10 +288,10 @@ document.getElementById("app").innerHTML = `
         "
       ></path>
       </g>
-      </svg>
+      </svg><span style="font-size: 8px; margin-top: -24px;"class="base-timer__label">SECONDS</span><br>
       <span id="base-timer-label" class="base-timer__label">
       ${formatTimeLeft(timeLeft)}
-      </span>
+      </span ><br><span style="font-size: 8px; margin-top: 24px;"class="base-timer__label">REMAINING</span>
       </div>
       `;
 
