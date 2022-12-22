@@ -482,3 +482,9 @@ const selectFb = (id) => {
     stelleFeed[i].classList.add("stars_col");
   }
 };
+
+const sendFeedback = () => {
+  const feedbackText = "costante definita manualmente";
+  const feedbackValue = 7;
+  console.log({ feedbackValue, feedbackText });
+};
