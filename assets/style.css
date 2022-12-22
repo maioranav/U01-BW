@@ -267,8 +267,16 @@ h3 {
 .innergraphic {
   position: absolute;
   width: 15%;
-  left: 43%;
+  left: 42.5%;
   text-align: center;
+}
+
+.innergraphic h4 {
+  margin: 0;
+}
+
+.innergraphic h4:not(:first-of-type) {
+  color: #0ff;
 }
 
 .flexcontainer {
