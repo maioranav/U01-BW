@@ -121,7 +121,7 @@ button {
   border: solid 0px #ccc;
   transition: all 0.3s;
   border-radius: 35px;
-  box-shadow: -1px -1px 1px 1px rgba(255, 255, 255, 0.884);
+  box-shadow: -1px -1px 3px 1px rgba(255, 255, 255, 0.899);
   background-color: rgba(255, 251, 251, 0.103);
   margin: 15px 20px;
 }
@@ -131,7 +131,10 @@ button {
 }
 
 .radio-container input[type="radio"]:checked + label {
-  background-color: #d20094;
+  background: linear-gradient(180deg, #d20094, #900080);
+}
+.radio-container label:hover {
+  background-color: #d2009488;
 }
 
 .radio-container {
@@ -314,7 +317,7 @@ h3 {
 
 /* The SVG path that displays the timer's progress */
 .base-timer__path-elapsed {
-  stroke-width: 7px;
+  stroke-width: 10px;
   stroke: grey;
 }
 
@@ -339,7 +342,7 @@ h3 {
 
 .base-timer__path-remaining {
   /* Just as thick as the original ring */
-  stroke-width: 7px;
+  stroke-width: 10px;
   /*stroke-dasharray: 283 283;*/
 
   /* Rounds the line endings to create a seamless circle */
@@ -362,11 +365,11 @@ h3 {
 }
 
 .base-timer__path-remaining.green {
-  color: rgb(65, 184, 131);
+  color: #0ff;
 }
 
 .base-timer__path-remaining.orange {
-  color: orange;
+  color: #d20094;
 }
 
 .base-timer__path-remaining.red {
