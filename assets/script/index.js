@@ -482,3 +482,15 @@ const selectFb = (id) => {
     stelleFeed[i].classList.add("stars_col");
   }
 };
+
+const sendFeedback = () => {
+  const feedbackText = document.getElementById("comment").value;
+  const feedbackValue = document.querySelector(
+    ".feedbackrating input[type='radio']:checked"
+  );
+  if (feedbackValue !== null) {
+    console.log({ feedbackValue: feedbackValue.value, feedbackText });
+  } else {
+    alert("You've not given a rating! Nothing to send.");
+  }
+};
