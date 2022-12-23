@@ -611,11 +611,11 @@ const punteggio = () => {
 const drawChart = () => {
   const risultati = punteggio();
   if (risultati.percentualeCorrette >= 60) {
-    innergraphic = `<h4>Congratulations! </h4><h4> <br />You passed the exam. </h4><br />We'll send you the
+    innergraphic = `<h2>Congratulations! </h2><h2> <br />You passed the exam. </h2><br />We'll send you the
             certificate in few minutes. <br />
             Check your email (including promotions / spam folder)`;
   } else {
-    innergraphic = `<h4>Too bad, <br />you didn't pass the exam. </h4><br /><br />Contact your teaching assistant!<br />
+    innergraphic = `<h2>Too bad, <br />you didn't pass the exam. </h2><br /><br />Contact your teaching assistant!<br />
           `;
   }
   console.log(innergraphic);
