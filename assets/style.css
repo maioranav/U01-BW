@@ -46,7 +46,8 @@ b {
 }
 
 #welcome h2 {
-  margin-bottom: 0;
+  font-size: 32px;
+  margin-bottom: -10px;
 }
 
 .text-magenta {
@@ -81,6 +82,14 @@ b {
   background: #0ff;
 }
 
+#checkb + label {
+  font-weight: 600;
+}
+
+#checkb:checked + label {
+  font-weight: 400;
+}
+
 #proceed {
   margin-top: 6em;
   display: flex;
@@ -89,14 +98,14 @@ b {
 }
 
 button {
-  padding: 20px 60px;
+  padding: 16px 60px;
   background-color: #0ff;
   color: black;
   font-weight: bold;
   border: none;
   box-shadow: 0px 0px 32px 0px #0ff;
   font-family: "Outfit", sans-serif;
-  font-size: medium;
+  font-size: 24px;
 }
 /*-------------------------------------------------------------*/
 #questions h1 {
@@ -118,6 +127,7 @@ button {
   display: inline-block;
   min-width: 350px;
   padding: 20px;
+  font-weight: 600;
   border: solid 0px #ccc;
   transition: all 0.3s;
   border-radius: 35px;
@@ -146,7 +156,13 @@ button {
 
 #question-footer {
   display: flex;
+
   justify-content: space-between;
+}
+
+#question-footer h3 {
+  font-weight: 400;
+  letter-spacing: 2px;
 }
 
 #question-footer span {
@@ -225,8 +241,32 @@ button {
 h3 {
   text-align: center;
 }
+#results h1 {
+  margin-bottom: 0;
+}
+.summary {
+  font-weight: 400;
+}
 #buttonresult {
   text-align: center;
+}
+#buttonresult button {
+  background: none;
+  color: white;
+  border: 2px solid white;
+  box-shadow: none;
+}
+#feedback img {
+  width: 58px;
+  height: 58px;
+}
+#feedback h3 {
+  font-size: 26px;
+  font-weight: 300;
+}
+
+#feedback h3:not(:first-of-type) {
+  margin-top: 50px;
 }
 
 .single-chart {
@@ -271,9 +311,8 @@ h3 {
 .innergraphic {
   position: absolute;
   width: 15%;
-  left: 42.5%;
+  left: 43.2%;
   text-align: center;
-  font-size: 24px;
 }
 
 .innergraphic h2 {
@@ -282,6 +321,7 @@ h3 {
 
 .innergraphic h2:not(:first-of-type) {
   color: #0ff;
+  margin-top: -30px;
 }
 
 .summary {
@@ -295,6 +335,20 @@ h3 {
   margin: 4em auto;
 }
 
+.percentuale-caption {
+  font-size: 48px;
+  font-weight: 400;
+  margin: 0;
+  margin-bottom: -10px;
+}
+.percentuale {
+  font-size: 48px;
+  margin: 0;
+  margin-bottom: -14px;
+}
+.wrong {
+  opacity: 0.75;
+}
 /********** RESULTS PAGE ANSWERS ***********/
 .yourAnswersH2 {
   margin-top: 3em;

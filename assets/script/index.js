@@ -620,8 +620,10 @@ const drawChart = () => {
   }
   console.log(innergraphic);
   const disegnaRisultati = `<div>
-          <h2>Correct</h2>
-          <h2>${risultati.percentualeCorrette.toFixed(1)}%</h2>
+          <h2 class="percentuale-caption">Correct</h2>
+          <h2 class="percentuale">${risultati.percentualeCorrette.toFixed(
+            1
+          )}%</h2>
           <p>${risultati.risposteCorrette}/${
     risultati.domandeTotali
   } questions</p>
@@ -650,9 +652,11 @@ const drawChart = () => {
           </div>
         </div>
 
-        <div class="align-right">
-          <h2>Wrong</h2>
-          <h2>${risultati.percentualeErrate.toFixed(1)}%</h2>
+        <div class="align-right wrong">
+          <h2 class="percentuale-caption">Wrong</h2>
+          <h2 class="percentuale">${risultati.percentualeErrate.toFixed(
+            1
+          )}%</h2>
           <p>${risultati.risposteErrate}/${
     risultati.domandeTotali
   } questions</p>
