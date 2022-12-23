@@ -182,8 +182,112 @@ const questions = [
     correct_answer: "False",
     incorrect_answers: ["True"],
   },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "hard",
+    question:
+      "The Harvard architecture for micro-controllers added which additional bus?",
+    correct_answer: "Instruction",
+    incorrect_answers: ["Address", "Data", "Control"],
+  },
+  {
+    category: "Science: Computers",
+    type: "boolean",
+    difficulty: "hard",
+    question: "DHCP stands for Dynamic Host Configuration Port.",
+    correct_answer: "False",
+    incorrect_answers: ["True"],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "hard",
+    question:
+      "Which of these was the name of a bug found in April 2014 in the publicly available OpenSSL cryptography library?",
+    correct_answer: "Heartbleed",
+    incorrect_answers: ["Shellshock", "Corrupted Blood", "Shellscript"],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "hard",
+    question:
+      "Which of the following is the oldest of these computers by release date?",
+    correct_answer: "TRS-80",
+    incorrect_answers: ["Commodore 64", "ZX Spectrum", "Apple 3"],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "hard",
+    question:
+      "America Online (AOL) started out as which of these online service providers?",
+    correct_answer: "Quantum Link",
+    incorrect_answers: ["CompuServe", "Prodigy", "GEnie"],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "hard",
+    question:
+      "Which of these is not a key value of Agile software development?",
+    correct_answer: "Comprehensive documentation",
+    incorrect_answers: [
+      "Individuals and interactions",
+      "Customer collaboration",
+      "Responding to change",
+    ],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "hard",
+    question: "What vulnerability ranked #1 on the OWASP Top 10 in 2013?",
+    correct_answer: "Injection ",
+    incorrect_answers: [
+      "Broken Authentication",
+      "Cross-Site Scripting",
+      "Insecure Direct Object References",
+    ],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "hard",
+    question: "The acronym &quot;RIP&quot; stands for which of these?",
+    correct_answer: "Routing Information Protocol",
+    incorrect_answers: [
+      "Runtime Instance Processes",
+      "Regular Interval Processes",
+      "Routine Inspection Protocol",
+    ],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "hard",
+    question:
+      "What type of sound chip does the Super Nintendo Entertainment System (SNES) have?",
+    correct_answer: "ADPCM Sampler",
+    incorrect_answers: [
+      "FM Synthesizer",
+      "Programmable Sound Generator (PSG)",
+      "PCM Sampler",
+    ],
+  },
+  {
+    category: "Science: Computers",
+    type: "boolean",
+    difficulty: "hard",
+    question:
+      "The T-Mobile Sidekick smartphone is a re-branded version of the Danger Hiptop.",
+    correct_answer: "True",
+    incorrect_answers: ["False"],
+  },
 ];
 const arrayRisposte = [];
+let arrInUse;
 
 const shuffle = (array) => {
   let currentIndex = array.length,
@@ -203,13 +307,46 @@ const shuffle = (array) => {
 const startQuestions = () => {
   const verificaSpunta = document.querySelector("#checkb").checked;
   if (verificaSpunta === true) {
-    document.querySelector("#welcome").classList.add("hidden");
     for (let i = 0; i < questions.length; i++) {
       questions[i].answers = [...questions[i].incorrect_answers];
       questions[i].answers.push(questions[i].correct_answer);
       shuffle(questions[i].answers);
     }
-    loadQuestions(questions);
+    document.querySelector("#welcome").classList.add("hidden");
+    const difficulty = document.getElementById("difficulty").value;
+    switch (difficulty) {
+      case "0":
+        const qEasy = questions.filter(
+          (question) => question.difficulty === "easy"
+        );
+        arrInUse = qEasy;
+        loadQuestions(qEasy);
+
+        break;
+      case "1":
+        const qMedium = questions.filter(
+          (question) => question.difficulty === "medium"
+        );
+        arrInUse = qMedium;
+        loadQuestions(qMedium);
+
+        break;
+      case "2":
+        const qHard = questions.filter(
+          (question) => question.difficulty === "hard"
+        );
+        arrInUse = qHard;
+        loadQuestions(qHard);
+
+        break;
+
+      default:
+        const qExtreme = [...questions];
+        arrInUse = qExtreme;
+        loadQuestions(qExtreme);
+        break;
+    }
+    console.log(questions);
   } else {
     alert(
       "You must confirm that you'll answer yourself without help from anyone."
@@ -406,7 +543,7 @@ const nextQuestion = () => {
       document.querySelector(`#app`).classList.remove("hidden");
       startTimer();
       break;
-    case activeQuestion >= 0 && activeQuestion < questions.length - 1:
+    case activeQuestion >= 0 && activeQuestion < arrInUse.length - 1:
       document
         .querySelector(`#domanda${activeQuestion}`)
         .classList.add("hidden");
@@ -450,11 +587,11 @@ const addResponseToArray = (indice) => {
 };
 
 const punteggio = () => {
-  const domandeTotali = questions.length;
+  const domandeTotali = arrInUse.length;
   let risposteCorrette = 0;
   let risposteErrate = 0;
-  for (let index = 0; index < questions.length; index++) {
-    if (questions[index].correct_answer === arrayRisposte[index]) {
+  for (let index = 0; index < arrInUse.length; index++) {
+    if (arrInUse[index].correct_answer === arrayRisposte[index]) {
       risposteCorrette += 1;
     } else {
       risposteErrate += 1;
@@ -526,8 +663,8 @@ const drawChart = () => {
 
 const listAnswers = () => {
   let schedaRisposte = "";
-  for (let q = 0; q < questions.length; q++) {
-    if (arrayRisposte[q] === questions[q].correct_answer) {
+  for (let q = 0; q < arrInUse.length; q++) {
+    if (arrayRisposte[q] === arrInUse[q].correct_answer) {
       rispostadata = `<ion-icon name="checkmark-outline" style="color: green;"></ion-icon>${arrayRisposte[q]}`;
     } else if (arrayRisposte[q] === "N/A") {
       rispostadata = `<ion-icon name="close-outline" style= "color: red;"></ion-icon>${arrayRisposte[q]}`;
@@ -536,11 +673,11 @@ const listAnswers = () => {
     }
     schedaRisposte += `<div id="answer${q}" class="answer">
             <div>
-              <h6>${questions[q].question}</h6>
+              <h6>${arrInUse[q].question}</h6>
               <ul>
-                <li><ion-icon name="checkmark-outline" style="color: green;"></ion-icon>${questions[q].correct_answer}</li>`;
-    for (let ia = 0; ia < questions[q].incorrect_answers.length; ia++) {
-      schedaRisposte += `<li><ion-icon name="close-outline" style= "color: red;"></ion-icon>${questions[q].incorrect_answers[ia]}</li>`;
+                <li><ion-icon name="checkmark-outline" style="color: green;"></ion-icon>${arrInUse[q].correct_answer}</li>`;
+    for (let ia = 0; ia < arrInUse[q].incorrect_answers.length; ia++) {
+      schedaRisposte += `<li><ion-icon name="close-outline" style= "color: red;"></ion-icon>${arrInUse[q].incorrect_answers[ia]}</li>`;
     }
     schedaRisposte += `
               </ul>
