@@ -730,6 +730,10 @@ const sendFeedback = () => {
   );
   if (feedbackValue !== null) {
     console.log({ feedbackValue: feedbackValue.value, feedbackText });
+    alert(
+      "Grazie per il tuo feedback! E' stato mandato al console.log, verrai reindirizzato al sito di EpiCode!"
+    );
+    window.location.href = "https://www.epicode.com";
   } else {
     alert("You've not given a rating! Nothing to send.");
   }
